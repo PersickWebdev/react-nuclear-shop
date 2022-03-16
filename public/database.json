@@ -1,0 +1,220 @@
+{
+  "data": [
+    {
+      "categoryId": 1,
+      "categoryName": "burgers",
+      "categoryProducts": [
+        {
+          "parentId": 1,
+          "productId": 1,
+          "productCategory": "burgers",
+          "productName": "Light Doseburger",
+          "productWeight": 250,
+          "productPrice": 5,
+          "productImage": "/images/burgers/light-doseburger",
+          "productIngredients": [
+            "wheat bun",
+            "tomato sauce",
+            "beef",
+            "cheese",
+            "onion",
+            "tomato",
+            "mustard"
+          ]
+        },
+        {
+          "parentId": 1,
+          "productId": 2,
+          "productCategory": "burgers",
+          "productName": "Middle Doseburger",
+          "productWeight": 350,
+          "productPrice": 10,
+          "productImage": "/images/burgers/middle-doseburger",
+          "productIngredients": [
+            "wheat bun",
+            "tomato sauce",
+            "beef",
+            "cheese",
+            "onion",
+            "tomato",
+            "mustard"
+          ]
+        },
+        {
+          "parentId": 1,
+          "productId": 3,
+          "productCategory": "burgers",
+          "productName": "Heavy Doseburger",
+          "productWeight": 450,
+          "productPrice": 15,
+          "productImage": "/images/burgers/heavy-doseburger",
+          "productIngredients": [
+            "wheat bun",
+            "tomato sauce",
+            "beef",
+            "cheese",
+            "onion",
+            "tomato",
+            "mustard"
+          ]
+        },
+        {
+          "parentId": 1,
+          "productId": 4,
+          "productCategory": "burgers",
+          "productName": "Double Doseburger",
+          "productWeight": 550,
+          "productPrice": 20,
+          "productImage": "/images/burgers/double-doseburger",
+          "productIngredients": [
+            "wheat bun",
+            "tomato sauce",
+            "beef",
+            "cheese",
+            "onion",
+            "tomato",
+            "mustard"
+          ]
+        },
+        {
+          "parentId": 1,
+          "productId": 5,
+          "productCategory": "burgers",
+          "productName": "King Doseburger",
+          "productWeight": 650,
+          "productPrice": 25,
+          "productImage": "/images/burgers/king-doseburger",
+          "productIngredients": [
+            "wheat bun",
+            "tomato sauce",
+            "beef",
+            "cheese",
+            "onion",
+            "tomato",
+            "mustard"
+          ]
+        },
+        {
+          "parentId": 1,
+          "productId": 6,
+          "productCategory": "burgers",
+          "productName": "Chicken Doseburger",
+          "productWeight": 350,
+          "productPrice": 10,
+          "productImage": "/images/burgers/chicken-doseburger",
+          "productIngredients": [
+            "wheat bun",
+            "tomato sauce",
+            "chicken",
+            "cheese",
+            "onion",
+            "tomato",
+            "mustard"
+          ]
+        },
+        {
+          "parentId": 1,
+          "productId": 7,
+          "productCategory": "burgers",
+          "productName": "Bacon Doseburger",
+          "productWeight": 350,
+          "productPrice": 10,
+          "productImage": "/images/burgers/bacon-doseburger",
+          "productIngredients": [
+            "wheat bun",
+            "tomato sauce",
+            "beef",
+            "bacon",
+            "cheese",
+            "onion",
+            "tomato",
+            "mustard"
+          ]
+        }
+      ]
+    },
+    {
+      "categoryId": 2,
+      "categoryName": "drinks",
+      "categoryProducts": [
+        {
+          "parentId": 2,
+          "productId": 1,
+          "productCategory": "drinks",
+          "productName": "Nuclear Cola",
+          "productWeight": 500,
+          "productPrice": 2,
+          "productImage": "/images/drinks/nuclear-cola",
+          "productIngredients": []
+        },
+        {
+          "parentId": 2,
+          "productId": 2,
+          "productCategory": "drinks",
+          "productName": "Nuclear Fanta",
+          "productWeight": 500,
+          "productPrice": 2,
+          "productImage": "/images/drinks/nuclear-fanta",
+          "productIngredients": []
+        },
+        {
+          "parentId": 2,
+          "productId": 3,
+          "productCategory": "drinks",
+          "productName": "Nuclear Sprite",
+          "productWeight": 500,
+          "productPrice": 2,
+          "productImage": "/images/drinks/nuclear-sprite",
+          "productIngredients": []
+        },
+        {
+          "parentId": 2,
+          "productId": 4,
+          "productCategory": "drinks",
+          "productName": "Nuclear Americano",
+          "productWeight": 340,
+          "productPrice": 7,
+          "productImage": "/images/drinks/nuclear-americano",
+          "productIngredients": [
+            "arabica",
+            "water",
+            "milk"
+          ]
+        },
+        {
+          "parentId": 2,
+          "productId": 5,
+          "productCategory": "drinks",
+          "productName": "Nuclear Latte",
+          "productWeight": 340,
+          "productPrice": 8,
+          "productImage": "/images/drinks/nuclear-latte",
+          "productIngredients": [
+            "arabica",
+            "milk"
+          ]
+        },
+        {
+          "parentId": 2,
+          "productId": 6,
+          "productCategory": "drinks",
+          "productName": "Nuclear Apple",
+          "productWeight": 500,
+          "productPrice": 10,
+          "productImage": "/images/drinks/nuclear-apple",
+          "productIngredients": []
+        },
+        {
+          "parentId": 2,
+          "productId": 7,
+          "productCategory": "drinks",
+          "productName": "Nuclear Cherry",
+          "productWeight": 500,
+          "productPrice": 10,
+          "productImage": "/images/drinks/nuclear-cherry",
+          "productIngredients": []
+        }
+      ]
+    }
+  ]
+}
