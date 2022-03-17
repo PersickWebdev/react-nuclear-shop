@@ -1,0 +1,13 @@
+@mixin container() {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+@mixin text($size, $weight, $transform, $decoration, $color) {
+  font-size: $size;
+  font-weight: $weight;
+  text-transform: $transform;
+  text-decoration: $decoration;
+  color: $color;
+}
