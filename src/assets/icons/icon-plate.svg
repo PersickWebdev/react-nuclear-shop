@@ -1,0 +1,12 @@
+<svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="#ffffff"
+>
+    <rect x="11" y="11" width="9" height="9" rx="1" fill="#currentColor"/>
+    <rect y="11" width="9" height="9" rx="1" fill="#currentColor"/>
+    <rect x="11" width="9" height="9" rx="1" fill="#currentColor"/>
+    <rect width="9" height="9" rx="1" fill="#currentColor"/>
+</svg>

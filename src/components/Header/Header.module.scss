@@ -6,6 +6,32 @@
   background-color: $gray-dark;
 
   & .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     @include container();
+  }
+
+  &__section {
+    display: flex;
+    align-items: center;
+  }
+
+  &__section:last-child {
+    justify-content: space-between;
+  }
+
+  // HEADER: LOGO
+  &__logo-box {
+    margin-right: 100px;
+  }
+
+  &__logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  &__heading {
+    @include text(36px, 700, uppercase, none, $nuclear-middle);
   }
 }
