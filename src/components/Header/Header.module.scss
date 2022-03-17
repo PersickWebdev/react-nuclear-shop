@@ -1,5 +1,6 @@
 @import '../../scss/colors';
 @import '../../scss/mixins';
+@import '../../scss/variables';
 
 .header {
   padding: 20px 0;
@@ -33,5 +34,40 @@
 
   &__heading {
     @include text(36px, 700, uppercase, none, $nuclear-middle);
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: $nuclear-middle;
+    border: 1px solid $gray-dark;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: $transition;
+  }
+
+  &__icon-box:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  &__icon-box:hover {
+    border: 1px solid $nuclear-middle;
+    background-color: $gray-dark;
+
+    .header__icon {
+      fill: $nuclear-middle;
+    }
+  }
+
+  &__icon {
+    fill: $gray-dark;
   }
 }
