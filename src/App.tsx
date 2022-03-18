@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { Header, Footer } from './components';
 import { StorePage, ContactUsPage } from './pages';
+import { useRequests } from './api';
 import styles from './App.module.scss';
 
 // Tracking window width:
@@ -10,7 +12,13 @@ function getWindowWidth() {
 }
 
 export const App = () => {
+    const dispatch = useDispatch();
+    const { getDataThunk } = useRequests();
     const [ windowWidth, setWindowWidth ] = useState(getWindowWidth());
+
+    useEffect(() => {
+        dispatch(getDataThunk());
+    }, []);
 
     // Tracking window width:
     useEffect(() => {
@@ -21,8 +29,6 @@ export const App = () => {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
-
-    console.log('App - windowWidth: ', windowWidth);
 
     return (
         <div className={styles['application']}>

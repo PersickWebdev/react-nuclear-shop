@@ -1,8 +1,13 @@
 import React from 'react';
-import styles from './StorePage.module.scss';
+import { useSelector } from 'react-redux';
 import { Store } from '../../components';
+import styles from './StorePage.module.scss';
 
 const StorePage = () => {
+    // @ts-ignore
+    const { data } = useSelector((state) => state.DataReducer);
+
+    console.log('StorePage - data: ', data);
 
     return (
         <div className={styles['store-page']}>
