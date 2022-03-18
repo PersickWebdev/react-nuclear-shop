@@ -3,6 +3,7 @@ import styles from './StorePage.module.scss';
 import { Store } from '../../components';
 
 const StorePage = () => {
+
     return (
         <div className={styles['store-page']}>
             <div className={styles['container']}>

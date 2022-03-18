@@ -4,7 +4,9 @@ import styles from './Store.module.scss';
 const Store = () => {
     return (
         <div className={styles['store']}>
-            Store
+            <ul className={styles['store__list']}>
+
+            </ul>
         </div>
     );
 };
