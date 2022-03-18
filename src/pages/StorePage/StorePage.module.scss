@@ -1,0 +1,9 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+@import '../../scss/variables';
+
+.store-page {
+  & .container {
+    @include container();
+  }
+}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Header, Footer } from './components';
-import { Store, ContactUs } from './pages';
+import { StorePage, ContactUsPage } from './pages';
 import styles from './App.module.scss';
 
 // Tracking window width:
@@ -11,7 +11,6 @@ function getWindowWidth() {
 
 export const App = () => {
     const [ windowWidth, setWindowWidth ] = useState(getWindowWidth());
-    const [ isMobile, setIsMobile ] = useState<boolean>(false);
 
     // Tracking window width:
     useEffect(() => {
@@ -21,7 +20,7 @@ export const App = () => {
 
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
-    });
+    }, []);
 
     console.log('App - windowWidth: ', windowWidth);
 
@@ -30,20 +29,18 @@ export const App = () => {
             <Header isMobile={windowWidth < 576}/>
             <main className={styles['application__main']}>
                 <Routes>
-                    <Route>
-                        <Route
-                            path="/"
-                            element={<Store/>}
-                        />
-                        <Route
-                            path="/store"
-                            element={<Store/>}
-                        />
-                        <Route
-                            path="/contact-us"
-                            element={<ContactUs/>}
-                        />
-                    </Route>
+                    <Route
+                        path="/"
+                        element={<StorePage/>}
+                    />
+                    <Route
+                        path="/store"
+                        element={<StorePage/>}
+                    />
+                    <Route
+                        path="/contact-us"
+                        element={<ContactUsPage/>}
+                    />
                 </Routes>
             </main>
             <Footer/>

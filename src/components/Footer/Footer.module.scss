@@ -1,5 +1,6 @@
 @import '../../scss/colors';
 @import '../../scss/mixins';
+@import '../../scss/variables';
 
 .footer {
   padding: 20px 0;
@@ -7,5 +8,11 @@
 
   & .container {
     @include container();
+  }
+
+  &__copyrights {
+    text-align: center;
+    letter-spacing: 5px;
+    @include text(22px, 600, uppercase, none, $nuclear-middle);
   }
 }
