@@ -1,8 +1,8 @@
 export const NavigationItemObjects = [
     {
         id: 1,
-        label: "Menu",
-        url: "/menu",
+        label: "Store",
+        url: "/store",
     },
     {
         id: 2,

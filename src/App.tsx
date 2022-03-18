@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import styles from './App.module.scss';
+import { Routes, Route } from 'react-router-dom';
 import { Header, Footer } from './components';
+import { Store, ContactUs } from './pages';
+import styles from './App.module.scss';
 
+// Tracking window width:
 function getWindowWidth() {
     return window.innerWidth;
 }
@@ -26,7 +29,22 @@ export const App = () => {
         <div className={styles['application']}>
             <Header isMobile={windowWidth < 576}/>
             <main className={styles['application__main']}>
-                Main
+                <Routes>
+                    <Route>
+                        <Route
+                            path="/"
+                            element={<Store/>}
+                        />
+                        <Route
+                            path="/store"
+                            element={<Store/>}
+                        />
+                        <Route
+                            path="/contact-us"
+                            element={<ContactUs/>}
+                        />
+                    </Route>
+                </Routes>
             </main>
             <Footer/>
         </div>
