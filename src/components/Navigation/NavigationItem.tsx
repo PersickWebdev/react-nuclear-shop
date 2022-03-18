@@ -5,12 +5,17 @@ import { Link } from 'react-router-dom';
 interface INavigationItem {
     label: string;
     url: string;
+    isMobileHeaderShown: boolean;
+    setIsMobileHeaderShown: (state: boolean) => void;
 }
 
-const NavigationItem = ({ label, url }:INavigationItem) => {
+const NavigationItem = ({ label, url, isMobileHeaderShown = false, setIsMobileHeaderShown }:INavigationItem) => {
     return (
         <li className={styles['navigation__item']}>
-            <Link to={url}>
+            <Link
+                to={url}
+                onClick={isMobileHeaderShown ? () => setIsMobileHeaderShown(false) : () => null}
+            >
                 {label}
             </Link>
         </li>

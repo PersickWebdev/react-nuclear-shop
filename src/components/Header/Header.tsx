@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Header.module.scss';
 import { Navigation } from '../../components';
 import { Icons } from '../../ui';
 
-const Header = () => {
+interface IHeader {
+    isMobile: boolean;
+}
+
+const Header = ({ isMobile = false }:IHeader) => {
+    const [ isMobileHeaderShown, setIsMobileHeaderShown ] = useState<boolean>(false);
+
+    console.log('isMobile: ', isMobile);
+
     const iconAdminHandler = () => {
         console.log('Admin icon clicked');
-    }
+    };
 
     const iconCartHandler = () => {
         console.log('Cart icon clicked');
-    }
+    };
+
+    const showMobileHeader = () => {
+        setIsMobileHeaderShown(true);
+    };
 
     return (
         <header className={styles['header']}>
@@ -33,7 +45,10 @@ const Header = () => {
                     </h1>
                 </div>
                 <div className={styles['header__section']}>
-                    <Navigation/>
+                    <Navigation
+                        isMobileHeaderShown={isMobileHeaderShown}
+                        setIsMobileHeaderShown={setIsMobileHeaderShown}
+                    />
                     <div className={styles['header__actions']}>
                         <div
                             className={styles['header__icon-box']}
@@ -51,6 +66,19 @@ const Header = () => {
                                 className: `${styles['header__icon']}`,
                             })}
                         </div>
+                        {isMobile
+                            ?
+                            <div
+                                className={`${styles['header__icon-box']} ${styles['burger']}`}
+                                onClick={showMobileHeader}
+                            >
+                                {Icons.burger({
+                                    className: `${styles['header__icon']}`,
+                                })}
+                            </div>
+                            :
+                            <></>
+                        }
                     </div>
                 </div>
             </div>
