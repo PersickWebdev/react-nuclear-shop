@@ -5,6 +5,7 @@
 .header {
   padding: 20px 0;
   background-color: $gray-dark;
+  border-bottom: 2px solid $nuclear-middle;
 
   & .container {
     display: flex;

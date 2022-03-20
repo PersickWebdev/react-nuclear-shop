@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Header, Footer } from './components';
-import { StorePage, ContactUsPage } from './pages';
+import { WelcomePage, StorePage, ContactUsPage } from './pages';
 import { useRequests } from './api';
 import styles from './App.module.scss';
 
@@ -37,7 +37,7 @@ export const App = () => {
                 <Routes>
                     <Route
                         path="/"
-                        element={<StorePage/>}
+                        element={<WelcomePage/>}
                     />
                     <Route
                         path="/store"

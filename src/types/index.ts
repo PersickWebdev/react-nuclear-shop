@@ -1,0 +1,1 @@
+export type { ICategory, IProduct } from './interfaces';

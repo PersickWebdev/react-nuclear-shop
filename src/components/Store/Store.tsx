@@ -5,7 +5,7 @@ const Store = () => {
     return (
         <div className={styles['store']}>
             <ul className={styles['store__list']}>
-
+                Store
             </ul>
         </div>
     );
