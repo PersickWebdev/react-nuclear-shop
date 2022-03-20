@@ -55,7 +55,9 @@ const StorePage = () => {
                 setCurrentCategory={setCurrentCategory}
             />
             <div className={styles['container']}>
-                <Store />
+                <Store
+                    currentCategoryProducts={currentCategoryProducts}
+                />
             </div>
         </div>
     );
