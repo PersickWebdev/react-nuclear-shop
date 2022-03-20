@@ -29,15 +29,18 @@ const ControlPanel = ({ data, currentCategory, setCurrentCategory }: IControlPan
                 </div>
                 <div className={styles['control-panel__categories-box']}>
                     <ul className={styles['control-panel__categories-list']}>
+                        <li
+                            className={`${styles['control-panel__categories-list-item']} ${currentCategory === 'all' ? styles['isActive'] : ''}`}
+                            onClick={() => setCurrentCategory('all')}
+                        >
+                            All
+                        </li>
                         {categoryElements}
                     </ul>
-                </div>
-                <div className={styles['control-panel__view-options-box']}>
-                    View Options
                 </div>
             </div>
         </div>
     );
 };
 
-export default ControlPanel;
+export default React.memo(ControlPanel);

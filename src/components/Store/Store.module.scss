@@ -3,5 +3,138 @@
 @import '../../scss/variables';
 
 .store {
+  &__cards-box {
+    display: flex;
+    //justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 50px 0 30px 0;
 
+    @media (max-width: 1024px) {
+      justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  &__card {
+    width: 285px;
+    height: 285px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: $gray-dark;
+    border-radius: 5px;
+  }
+
+  &__card:not(:nth-child(3n)) {
+    margin-right: 14px;
+
+    @media (max-width: 1024px) {
+      margin-right: unset;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    &__card:not(:nth-child(2n)) {
+      margin-right: 30px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__card:not(:nth-child(2n)) {
+      margin-right: 0;
+    }
+  }
+
+  &__card-image-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    margin-bottom: 10px;
+    background-color: $black-dark;
+  }
+
+  &__card-image {
+    width: 130px;
+    height: 120px;
+  }
+
+  &__card-heading {
+    @include text(14px, 600, uppercase, none, $nuclear-middle);
+  }
+
+  &__card-section:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  &__card-section.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__card-paragraph:first-child {
+    @include text(14px, 400, uppercase, none, $gray-light);
+  }
+
+  &__card-paragraph {
+    margin-bottom: 5px;
+    @include text(14px, 400, none, none, $gray-light);
+  }
+
+  &__card-paragraph:last-child {
+    height: 40px;
+    overflow: scroll;
+  }
+
+  &__card-section.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__card-price {
+    @include text(16px, 600, none, none, $nuclear-middle);
+  }
+
+  &__card-weight {
+    @include text(14px, 600, none, none, $nuclear-middle);
+  }
+
+  &__card-icon-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: $green-middle;
+    border: 1px solid $gray-dark;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: $transition;
+  }
+
+  &__card-icon-box:hover {
+    background-color: $gray-dark;
+    border: 1px solid $green-middle;
+  }
+
+  &__card-icon {
+    fill: $gray-dark;
+    transition: $transition;
+  }
+
+  &__card-icon-box:hover .store__card-icon {
+    fill: $green-middle;
+  }
+
+  &__message {
+    width: 200px;
+    margin: 50px auto 0 auto;
+    text-align: center;
+    @include text(14px, 400, none, none, gray-dark);
+  }
 }

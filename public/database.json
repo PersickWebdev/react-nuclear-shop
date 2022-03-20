@@ -11,7 +11,7 @@
           "productName": "Light Doseburger",
           "productWeight": 250,
           "productPrice": 5,
-          "productImage": "/images/burgers/light",
+          "productImage": "/images/burgers/light.png",
           "productIngredients": [
             "wheat bun",
             "tomato sauce",
@@ -29,7 +29,7 @@
           "productName": "Middle Doseburger",
           "productWeight": 350,
           "productPrice": 10,
-          "productImage": "/images/burgers/middle",
+          "productImage": "/images/burgers/middle.png",
           "productIngredients": [
             "wheat bun",
             "tomato sauce",
@@ -47,7 +47,7 @@
           "productName": "Heavy Doseburger",
           "productWeight": 450,
           "productPrice": 15,
-          "productImage": "/images/burgers/heavy",
+          "productImage": "/images/burgers/heavy.png",
           "productIngredients": [
             "wheat bun",
             "tomato sauce",
@@ -65,7 +65,7 @@
           "productName": "Double Doseburger",
           "productWeight": 550,
           "productPrice": 20,
-          "productImage": "/images/burgers/double",
+          "productImage": "/images/burgers/double.png",
           "productIngredients": [
             "wheat bun",
             "tomato sauce",
@@ -83,7 +83,7 @@
           "productName": "King Doseburger",
           "productWeight": 650,
           "productPrice": 25,
-          "productImage": "/images/burgers/king",
+          "productImage": "/images/burgers/king.png",
           "productIngredients": [
             "wheat bun",
             "tomato sauce",
@@ -101,7 +101,7 @@
           "productName": "Chicken Doseburger",
           "productWeight": 350,
           "productPrice": 10,
-          "productImage": "/images/burgers/chicken",
+          "productImage": "/images/burgers/chicken.png",
           "productIngredients": [
             "wheat bun",
             "tomato sauce",
@@ -119,7 +119,7 @@
           "productName": "Bacon Doseburger",
           "productWeight": 350,
           "productPrice": 10,
-          "productImage": "/images/burgers/bacon",
+          "productImage": "/images/burgers/bacon.png",
           "productIngredients": [
             "wheat bun",
             "tomato sauce",
@@ -144,7 +144,7 @@
           "productName": "Nuclear Cola",
           "productWeight": 500,
           "productPrice": 2,
-          "productImage": "/images/drinks/cola",
+          "productImage": "/images/drinks/cola.png",
           "productIngredients": []
         },
         {
@@ -154,7 +154,7 @@
           "productName": "Nuclear Fanta",
           "productWeight": 500,
           "productPrice": 2,
-          "productImage": "/images/drinks/fanta",
+          "productImage": "/images/drinks/fanta.png",
           "productIngredients": []
         },
         {
@@ -164,7 +164,7 @@
           "productName": "Nuclear Sprite",
           "productWeight": 500,
           "productPrice": 2,
-          "productImage": "/images/drinks/sprite",
+          "productImage": "/images/drinks/sprite.png",
           "productIngredients": []
         },
         {
@@ -174,7 +174,7 @@
           "productName": "Nuclear Americano",
           "productWeight": 340,
           "productPrice": 7,
-          "productImage": "/images/drinks/coffee",
+          "productImage": "/images/drinks/coffee.png",
           "productIngredients": [
             "arabica",
             "water",
@@ -188,7 +188,7 @@
           "productName": "Nuclear Latte",
           "productWeight": 340,
           "productPrice": 8,
-          "productImage": "/images/drinks/coffee",
+          "productImage": "/images/drinks/coffee.png",
           "productIngredients": [
             "arabica",
             "milk"
@@ -201,7 +201,7 @@
           "productName": "Nuclear Apple",
           "productWeight": 500,
           "productPrice": 10,
-          "productImage": "/images/drinks/juice",
+          "productImage": "/images/drinks/juice.png",
           "productIngredients": []
         },
         {
@@ -211,7 +211,7 @@
           "productName": "Nuclear Cherry",
           "productWeight": 500,
           "productPrice": 10,
-          "productImage": "/images/drinks/juice",
+          "productImage": "/images/drinks/juice.png",
           "productIngredients": []
         }
       ]

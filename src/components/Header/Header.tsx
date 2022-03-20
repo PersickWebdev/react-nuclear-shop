@@ -10,8 +10,6 @@ interface IHeader {
 const Header = ({ isMobile = false }:IHeader) => {
     const [ isMobileHeaderShown, setIsMobileHeaderShown ] = useState<boolean>(false);
 
-    console.log('isMobile: ', isMobile);
-
     const iconAdminHandler = () => {
         console.log('Admin icon clicked');
     };

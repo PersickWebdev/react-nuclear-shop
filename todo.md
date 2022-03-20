@@ -1,4 +1,4 @@
 ```
-01. Render products in "Store" component.
-02. Complete "ControlPanel" component.
+01. "Store": render product cards.
+02. "ControlPanel": create view options.
 ```

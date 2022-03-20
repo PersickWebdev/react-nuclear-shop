@@ -6,6 +6,7 @@ export { default as Navigation } from './Navigation/Navigation';
 export { default as NavigationItem } from './Navigation/NavigationItem';
 
 export { default as Store } from './Store/Store';
+export { default as ProductCard } from './Store/ProductCard';
 
 export { default as ControlPanel } from './ControlPanel/ControlPanel';
 export { default as CategoryItem } from './ControlPanel/CategoryItem';

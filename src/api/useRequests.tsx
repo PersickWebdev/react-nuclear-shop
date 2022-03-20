@@ -6,7 +6,7 @@ export const useRequests = () => {
     const getDataThunk = () => async (dispatch: any) => {
         const response = await axios.get(Endpoints.data);
         dispatch(DataActions.getAll(response.data));
-    }
+    };
 
     return { getDataThunk };
-}
+};
