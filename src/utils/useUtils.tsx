@@ -1,4 +1,4 @@
-export const useUtils = () => {
+const useUtils = () => {
 
     // 'processingPattern':
     //      - sentence
@@ -42,3 +42,5 @@ export const useUtils = () => {
 
     return { processArrayToString, getAdditionalClass };
 };
+
+export default useUtils;

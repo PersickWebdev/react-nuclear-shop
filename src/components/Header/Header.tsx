@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Header.module.scss';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { Navigation } from '../../components';
 import { Icons } from '../../ui';
 
@@ -8,6 +10,9 @@ interface IHeader {
 }
 
 const Header = ({ isMobile = false }:IHeader) => {
+    // @ts-ignore
+    const { products } = useSelector((state) => state.CartReducer);
+    const cartItemsQuantity: number = products.length;
     const [ isMobileHeaderShown, setIsMobileHeaderShown ] = useState<boolean>(false);
 
     const iconAdminHandler = () => {
@@ -57,12 +62,22 @@ const Header = ({ isMobile = false }:IHeader) => {
                             })}
                         </div>
                         <div
-                            className={styles['header__icon-box']}
+                            className={`${styles['header__icon-box']} ${styles['cart']}`}
                             onClick={iconCartHandler}
                         >
-                            {Icons.cart({
-                                className: `${styles['header__icon']}`,
-                            })}
+                            {cartItemsQuantity != 0
+                                ?
+                                <div className={styles['header__icon-box-quantity']}>
+                                    {cartItemsQuantity}
+                                </div>
+                                :
+                                <></>
+                            }
+                            <Link to='/cart'>
+                                {Icons.cart({
+                                    className: `${styles['header__icon']}`,
+                                })}
+                            </Link>
                         </div>
                         {isMobile
                             ?

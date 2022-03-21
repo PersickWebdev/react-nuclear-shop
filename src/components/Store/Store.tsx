@@ -13,6 +13,8 @@ const Store = ({ currentCategoryProducts }: IStore) => {
         return (
             <ProductCard
                 key={`${item.productId}_${item.parentId}`}
+                parentId={item.parentId}
+                productId={item.productId}
                 productCategory={item.productCategory}
                 productName={item.productName}
                 productWeight={item.productWeight}

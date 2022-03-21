@@ -80,6 +80,25 @@
     transition: $transition;
   }
 
+  &__icon-box.cart {
+    position: relative;
+  }
+
+  &__icon-box-quantity {
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: $green-middle;
+    position: absolute;
+    bottom: 0;
+    left: 7.5px;
+    @include text(12px, 600, none, none, $gray-dark);
+  }
+
+
   &__icon-box:not(:last-child) {
     margin-right: 20px;
 
@@ -99,6 +118,13 @@
     .header__icon {
       fill: $nuclear-middle;
     }
+  }
+
+  &__icon-box a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px;
   }
 
   &__icon {

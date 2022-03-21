@@ -2,6 +2,8 @@
 @import '../../scss/mixins';
 @import '../../scss/variables';
 
-.cart {
-  margin-top: 30px;
+.cart-page {
+  & .container {
+    @include container();
+  }
 }

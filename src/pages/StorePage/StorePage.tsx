@@ -47,4 +47,4 @@ const StorePage = () => {
     );
 };
 
-export default React.memo(StorePage);
+export default StorePage;

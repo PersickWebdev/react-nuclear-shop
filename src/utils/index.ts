@@ -1,1 +1,1 @@
-export { useUtils } from './useUtils';
+export { default as useUtils } from './useUtils';

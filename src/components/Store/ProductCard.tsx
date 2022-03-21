@@ -1,12 +1,15 @@
 import React from 'react';
 import styles from './Store.module.scss';
+import { useDispatch } from 'react-redux';
 import { Icons } from '../../ui';
 import { useUtils } from '../../utils';
+import {CartActions} from "../../redux/actionCreators/CartActions";
+import { IProduct } from '../../types';
 
 interface IProductCard {
-    parentId?: number,
-    productId?: number,
-    productCategory?: string,
+    parentId: number,
+    productId: number,
+    productCategory: string,
     productName: string,
     productWeight: number,
     productPrice: number,
@@ -15,6 +18,8 @@ interface IProductCard {
 }
 
 const ProductCard = ({
+    parentId,
+    productId,
     productCategory,
     productName,
     productWeight,
@@ -22,10 +27,22 @@ const ProductCard = ({
     productImage,
     productIngredients
 }:IProductCard) => {
+    const dispatch = useDispatch();
     const { processArrayToString } = useUtils();
 
     const addProductHandler = () => {
-        console.log('Icon add clicked');
+        const product: IProduct = {
+            parentId,
+            productId,
+            productCategory,
+            productName,
+            productPrice,
+            productImage,
+            productWeight,
+            productIngredients,
+        }
+        dispatch(CartActions.set(product));
+        console.log('ProductCard - productToCart: ', product);
     }
 
     return (
