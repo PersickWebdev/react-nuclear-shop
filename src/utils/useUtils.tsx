@@ -25,5 +25,20 @@ export const useUtils = () => {
         }
     };
 
-    return { processArrayToString };
+    const getAdditionalClass = (presetOptionsArray: string[], incomingPreset: string) => {
+        if (incomingPreset === '') return '';
+
+        let result = '';
+
+        presetOptionsArray.forEach((item: string) => {
+            if (item === incomingPreset) {
+                result = incomingPreset;
+                return;
+            }
+        });
+
+        return result;
+    };
+
+    return { processArrayToString, getAdditionalClass };
 };

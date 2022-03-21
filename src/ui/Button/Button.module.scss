@@ -1,0 +1,27 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+@import '../../scss/variables';
+
+.button {
+  min-width: 120px;
+  padding: 8px 10px;
+  outline: none;
+  background-color: $nuclear-middle;
+  border: 1px solid $gray-dark;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  @include text(16px, 600, uppercase, none, $gray-dark);
+
+  &:hover {
+    color: $nuclear-middle;
+    background-color: $gray-dark;
+    border: 1px solid $nuclear-middle;
+  }
+
+  &.link {
+    padding: unset;
+    border: none;
+  }
+
+}
