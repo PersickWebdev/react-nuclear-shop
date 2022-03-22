@@ -40,7 +40,22 @@ const useUtils = () => {
         return result;
     };
 
-    return { processArrayToString, getAdditionalClass };
+    const getTotalItemsCount = (itemsObject: {}) => {
+        return Object.values(itemsObject).flat().length;
+    };
+
+    const getTotalItemsPrice = (itemsObject: {}) => {
+        return Object.values(itemsObject)
+            .flat()
+            .reduce((sum, item: any) => sum + item.productPrice, 0);
+    }
+
+    return {
+        processArrayToString,
+        getAdditionalClass,
+        getTotalItemsCount,
+        getTotalItemsPrice
+    };
 };
 
 export default useUtils;

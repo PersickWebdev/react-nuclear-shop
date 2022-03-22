@@ -1,3 +1,3 @@
 export const CartTypes = {
-    set: 'CART/SET',
+    add: 'CART/ADD_NEW_ITEM',
 }

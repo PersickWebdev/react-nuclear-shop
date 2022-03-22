@@ -11,8 +11,7 @@ interface IHeader {
 
 const Header = ({ isMobile = false }:IHeader) => {
     // @ts-ignore
-    const { products } = useSelector((state) => state.CartReducer);
-    const cartItemsQuantity: number = products.length;
+    const { totalItemsCount } = useSelector((state) => state.CartReducer);
     const [ isMobileHeaderShown, setIsMobileHeaderShown ] = useState<boolean>(false);
 
     const iconAdminHandler = () => {
@@ -65,10 +64,10 @@ const Header = ({ isMobile = false }:IHeader) => {
                             className={`${styles['header__icon-box']} ${styles['cart']}`}
                             onClick={iconCartHandler}
                         >
-                            {cartItemsQuantity != 0
+                            {totalItemsCount != 0
                                 ?
                                 <div className={styles['header__icon-box-quantity']}>
-                                    {cartItemsQuantity}
+                                    {totalItemsCount}
                                 </div>
                                 :
                                 <></>

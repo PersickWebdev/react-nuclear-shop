@@ -5,14 +5,18 @@ import { Cart } from '../../components';
 
 const CartPage = () => {
     // @ts-ignore
-    const { products } = useSelector((state) => state.CartReducer);
+    const { products, totalItemsCount, totalItemsPrice } = useSelector((state) => state.CartReducer);
 
     console.log('CartPage - products: ', products);
 
     return (
         <div className={styles['cart-page']}>
             <div className={styles['container']}>
-                <Cart products={products}/>
+                <Cart
+                    products={products}
+                    totalItemsCount={totalItemsCount}
+                    totalItemsPrice={totalItemsPrice}
+                />
             </div>
         </div>
     );

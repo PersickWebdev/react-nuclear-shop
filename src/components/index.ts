@@ -12,3 +12,4 @@ export { default as ControlPanel } from './ControlPanel/ControlPanel';
 export { default as CategoryItem } from './ControlPanel/CategoryItem';
 
 export { default as Cart } from './Cart/Cart';
+export { default as CartItem } from './Cart/CartItem';
