@@ -139,7 +139,7 @@
       "categoryProducts": [
         {
           "parentId": 2,
-          "productId": 1,
+          "productId": 8,
           "productCategory": "drinks",
           "productName": "Nuclear Cola",
           "productWeight": 500,
@@ -149,7 +149,7 @@
         },
         {
           "parentId": 2,
-          "productId": 2,
+          "productId": 9,
           "productCategory": "drinks",
           "productName": "Nuclear Fanta",
           "productWeight": 500,
@@ -159,7 +159,7 @@
         },
         {
           "parentId": 2,
-          "productId": 3,
+          "productId": 10,
           "productCategory": "drinks",
           "productName": "Nuclear Sprite",
           "productWeight": 500,
@@ -169,7 +169,7 @@
         },
         {
           "parentId": 2,
-          "productId": 4,
+          "productId": 11,
           "productCategory": "drinks",
           "productName": "Nuclear Americano",
           "productWeight": 340,
@@ -183,7 +183,7 @@
         },
         {
           "parentId": 2,
-          "productId": 5,
+          "productId": 12,
           "productCategory": "drinks",
           "productName": "Nuclear Latte",
           "productWeight": 340,
@@ -196,7 +196,7 @@
         },
         {
           "parentId": 2,
-          "productId": 6,
+          "productId": 13,
           "productCategory": "drinks",
           "productName": "Nuclear Apple",
           "productWeight": 500,
@@ -206,7 +206,7 @@
         },
         {
           "parentId": 2,
-          "productId": 7,
+          "productId": 14,
           "productCategory": "drinks",
           "productName": "Nuclear Cherry",
           "productWeight": 500,

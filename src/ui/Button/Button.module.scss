@@ -24,4 +24,15 @@
     border: none;
   }
 
+  &.success {
+    background-color: $green-middle;
+    border: 1px solid $gray-dark;
+  }
+  
+  &.success:hover {
+    color: $green-middle;
+    background-color: $gray-dark;
+    border: 1px solid $green-middle;
+  }
+
 }
