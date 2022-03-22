@@ -5,23 +5,40 @@ import { IProduct } from '../../types';
 
 interface ICart {
     products: IProduct[];
-    totalItemsCount: number;
     totalItemsPrice: number;
 }
 
-const Cart = ({ products, totalItemsCount, totalItemsPrice }: ICart) => {
+const Cart = ({ products, totalItemsPrice }: ICart) => {
 
-    const cartItems = products.map((item: IProduct) => {
+    const cartItems: any = [];
+
+    for (let array in products) {
+        // @ts-ignore
+        products[array].forEach((item: any) => {
+            for (let obj of cartItems) {
+                if (item.productId === obj.productId) {
+                    return;
+                }
+            }
+            cartItems.push(item);
+        });
+    }
+
+    const cartItemElements = cartItems.map((item: any) => {
         return (
             <CartItem
-
+                key={`${item.parentId}_${item.productId}`}
+                products={products}
+                itemId={item.productId}
+                itemName={item.productName}
+                itemImage={item.productImage}
             />
-        )
+        );
     });
 
     return (
         <div className={styles['cart']}>
-            {cartItems}
+            {cartItemElements}
         </div>
     );
 };

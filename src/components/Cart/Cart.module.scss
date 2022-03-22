@@ -3,5 +3,41 @@
 @import '../../scss/variables';
 
 .cart {
+  padding: 20px;
   margin-top: 30px;
+  background-color: $gray-dark;
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: $gray-middle;
+  }
+
+  &__item-image-box {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $black-dark;
+  }
+
+  &__item-image {
+    height: 50px;
+    width: 60px;
+  }
+
+  &__item-name {
+    @include text(14px, 600, uppercase, none, $gray-dark);
+  }
+
+  &__item-controls {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+  }
 }

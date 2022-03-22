@@ -64,7 +64,7 @@ const Header = ({ isMobile = false }:IHeader) => {
                             className={`${styles['header__icon-box']} ${styles['cart']}`}
                             onClick={iconCartHandler}
                         >
-                            {totalItemsCount != 0
+                            {totalItemsCount !== 0
                                 ?
                                 <div className={styles['header__icon-box-quantity']}>
                                     {totalItemsCount}
