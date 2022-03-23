@@ -92,10 +92,12 @@
   &__item-quantity {
     @include text(16px, 600, none, none, $gray-dark);
   }
+
   // PRICE
   &__item-price {
     @include text(16px, 600, none, none, $gray-dark);
   }
+
   // ACTIONS
   &__actions {
     display: flex;

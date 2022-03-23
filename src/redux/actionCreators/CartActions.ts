@@ -7,5 +7,19 @@ export const CartActions = {
             type: CartTypes.add,
             payload: product,
         }
-    }
+    },
+
+    decrease: (itemId: number) => {
+        return {
+            type: CartTypes.decrease,
+            payload: itemId
+        }
+    },
+
+    increase: (itemId: number) => {
+        return {
+            type: CartTypes.increase,
+            payload: itemId,
+        }
+    },
 }

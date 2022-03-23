@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from './Cart.module.scss';
+import { useDispatch } from 'react-redux';
 import { CartItem } from '../../components';
 import { Button } from '../../ui';
 import { IProduct } from '../../types';
+import { CartActions } from '../../redux/actionCreators';
 
 interface ICart {
     products: IProduct[];
@@ -10,6 +12,7 @@ interface ICart {
 }
 
 const Cart = ({ products, totalItemsPrice }: ICart) => {
+    const dispatch = useDispatch();
 
     const cartItems: any = [];
 
@@ -29,8 +32,9 @@ const Cart = ({ products, totalItemsPrice }: ICart) => {
         console.log('itemDecreaseHandler')
     };
 
-    const itemIncreaseHandler = () => {
-        console.log('itemIncreaseHandler')
+    const itemIncreaseHandler = (itemId: number) => {
+        dispatch(CartActions.increase(itemId));
+        console.log('itemIncreaseHandler - itemId: ', itemId);
     };
 
     const cartItemElements = cartItems.map((item: any) => {

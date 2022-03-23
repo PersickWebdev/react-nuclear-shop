@@ -9,7 +9,7 @@ interface ICartItem {
     itemName: string;
     itemImage: string;
     itemDecreaseHandler: () => void;
-    itemIncreaseHandler: () => void;
+    itemIncreaseHandler: (itemId: number) => void;
 }
 
 const CartItem = ({ products, itemId, itemName, itemImage, itemDecreaseHandler, itemIncreaseHandler }: ICartItem) => {
@@ -44,7 +44,7 @@ const CartItem = ({ products, itemId, itemName, itemImage, itemDecreaseHandler, 
                     </p>
                     <div
                         className={styles['cart__item-icon-box']}
-                        onClick={itemIncreaseHandler}
+                        onClick={() => itemIncreaseHandler(itemId)}
                     >
                         {Icons.increase({
                             className: `${styles['cart__item-icon']}`

@@ -23,6 +23,23 @@ export const CartReducer = (state = initialState, action: any) => {
                 totalItemsCount: getTotalItemsCount(newItems),
                 totalItemsPrice: getTotalItemsPrice(newItems),
             }
+        case CartTypes.increase:
+            const newItemsIncreased = {
+                ...state.products,
+            }
+            for (let array in newItemsIncreased) {
+                if (Number(array) === action.payload) {
+                    // @ts-ignore
+                    newItemsIncreased[array].push(newItemsIncreased[array][0]);
+                }
+            }
+
+            return {
+                ...state,
+                products: newItemsIncreased,
+                totalItemsCount: getTotalItemsCount(newItemsIncreased),
+                totalItemsPrice: getTotalItemsPrice(newItemsIncreased),
+            }
         default:
             return state;
     }
