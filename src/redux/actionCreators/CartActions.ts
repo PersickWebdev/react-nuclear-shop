@@ -12,7 +12,7 @@ export const CartActions = {
     decrease: (itemId: number) => {
         return {
             type: CartTypes.decrease,
-            payload: itemId
+            payload: itemId,
         }
     },
 
@@ -22,4 +22,11 @@ export const CartActions = {
             payload: itemId,
         }
     },
+
+    remove: (itemId: number) => {
+        return {
+            type: CartTypes.remove,
+            payload: itemId,
+        }
+    }
 }

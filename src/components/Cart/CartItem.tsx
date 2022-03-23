@@ -8,12 +8,20 @@ interface ICartItem {
     itemId: number;
     itemName: string;
     itemImage: string;
-    itemDecreaseHandler: () => void;
+    itemDecreaseHandler: (itemId: number) => void;
     itemIncreaseHandler: (itemId: number) => void;
+    itemRemoveHandler: (itemId: number) => void;
 }
 
-const CartItem = ({ products, itemId, itemName, itemImage, itemDecreaseHandler, itemIncreaseHandler }: ICartItem) => {
-
+const CartItem = ({
+    products,
+    itemId,
+    itemName,
+    itemImage,
+    itemDecreaseHandler,
+    itemIncreaseHandler,
+    itemRemoveHandler
+}: ICartItem) => {
     return (
         <div className={styles['cart__item']}>
             <div className={styles['cart__section']}>
@@ -32,7 +40,7 @@ const CartItem = ({ products, itemId, itemName, itemImage, itemDecreaseHandler, 
                 <div className={styles['cart__item-controls']}>
                     <div
                         className={styles['cart__item-icon-box']}
-                        onClick={itemDecreaseHandler}
+                        onClick={() => itemDecreaseHandler(itemId)}
                     >
                         {Icons.decrease({
                             className: `${styles['cart__item-icon']}`
@@ -47,6 +55,14 @@ const CartItem = ({ products, itemId, itemName, itemImage, itemDecreaseHandler, 
                         onClick={() => itemIncreaseHandler(itemId)}
                     >
                         {Icons.increase({
+                            className: `${styles['cart__item-icon']}`
+                        })}
+                    </div>
+                    <div
+                        className={`${styles['cart__item-icon-box']} ${styles['remove']}`}
+                        onClick={() => itemRemoveHandler(itemId)}
+                    >
+                        {Icons.close({
                             className: `${styles['cart__item-icon']}`
                         })}
                     </div>

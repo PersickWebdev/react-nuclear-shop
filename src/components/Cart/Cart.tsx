@@ -28,14 +28,17 @@ const Cart = ({ products, totalItemsPrice }: ICart) => {
         });
     }
 
-    const itemDecreaseHandler = () => {
-        console.log('itemDecreaseHandler')
+    const itemDecreaseHandler = (itemId: number) => {
+        dispatch(CartActions.decrease(itemId));
     };
 
     const itemIncreaseHandler = (itemId: number) => {
         dispatch(CartActions.increase(itemId));
-        console.log('itemIncreaseHandler - itemId: ', itemId);
     };
+
+    const itemRemoveHandler = (itemId: number) => {
+        dispatch(CartActions.remove(itemId));
+    }
 
     const cartItemElements = cartItems.map((item: any) => {
         return (
@@ -47,6 +50,7 @@ const Cart = ({ products, totalItemsPrice }: ICart) => {
                 itemImage={item.productImage}
                 itemDecreaseHandler={itemDecreaseHandler}
                 itemIncreaseHandler={itemIncreaseHandler}
+                itemRemoveHandler={itemRemoveHandler}
             />
         );
     });

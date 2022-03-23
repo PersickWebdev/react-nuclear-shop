@@ -23,6 +23,7 @@ export const CartReducer = (state = initialState, action: any) => {
                 totalItemsCount: getTotalItemsCount(newItems),
                 totalItemsPrice: getTotalItemsPrice(newItems),
             }
+
         case CartTypes.increase:
             const newItemsIncreased = {
                 ...state.products,
@@ -33,13 +34,49 @@ export const CartReducer = (state = initialState, action: any) => {
                     newItemsIncreased[array].push(newItemsIncreased[array][0]);
                 }
             }
-
             return {
                 ...state,
                 products: newItemsIncreased,
                 totalItemsCount: getTotalItemsCount(newItemsIncreased),
                 totalItemsPrice: getTotalItemsPrice(newItemsIncreased),
             }
+
+        case CartTypes.decrease:
+            const newItemsDecreased = {
+                ...state.products,
+            }
+            for (let array in newItemsDecreased) {
+                if (Number(array) === action.payload) {
+                    // @ts-ignore
+                    if (newItemsDecreased[array].length > 1) {
+                        // @ts-ignore
+                        newItemsDecreased[array].pop();
+                    }
+                }
+            }
+            return {
+                ...state,
+                products: newItemsDecreased,
+                totalItemsCount: getTotalItemsCount(newItemsDecreased),
+                totalItemsPrice: getTotalItemsPrice(newItemsDecreased),
+            }
+
+        case CartTypes.remove:
+            const newItemsRemoved = {
+                ...state.products,
+            }
+            for (let array in newItemsRemoved) {
+                if (Number(array) === action.payload) {
+                    // @ts-ignore
+                    newItemsRemoved[array].length = 0;
+                }
+            }
+            return {
+                ...state,
+                totalItemsCount: getTotalItemsCount(newItemsRemoved),
+                totalItemsPrice: getTotalItemsPrice(newItemsRemoved),
+            }
+
         default:
             return state;
     }

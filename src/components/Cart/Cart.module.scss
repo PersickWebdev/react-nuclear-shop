@@ -57,7 +57,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 110px;
+    width: 150px;
   }
 
   &__item-icon-box {
@@ -73,9 +73,18 @@
     cursor: pointer;
   }
 
+  &__item-icon-box.remove {
+    background-color: $red-middle;
+  }
+
   &__item-icon-box:hover {
     background-color: $gray-dark;
     border: 1px solid $nuclear-middle;
+  }
+
+  &__item-icon-box.remove:hover {
+    background-color: $gray-dark;
+    border: 1px solid $red-middle;
   }
 
   &__item-icon {
@@ -87,6 +96,10 @@
 
   &__item-icon-box:hover .cart__item-icon {
     fill: $nuclear-middle;
+  }
+
+  &__item-icon-box.remove:hover .cart__item-icon{
+    fill: $red-middle;
   }
 
   &__item-quantity {
