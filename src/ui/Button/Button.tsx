@@ -6,16 +6,17 @@ interface IButton {
     id: string;
     name: string;
     children: any;
-    action?: (event: React.MouseEvent<HTMLButtonElement>) => void;
     stylesPreset?: any;
     stylesCustom?: any;
+    action?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 // Button presets:
 //      - link
 //      - success
+//      - warning
 
-const presetOptions: string[] = ['link', 'success'];
+const presetOptions: string[] = ['link', 'success', 'warning'];
 
 const Button = ({ id, name, children, action, stylesPreset, stylesCustom }:IButton) => {
     const { getAdditionalClass } = useUtils();

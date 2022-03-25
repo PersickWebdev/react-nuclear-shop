@@ -14,3 +14,19 @@ export interface IProduct {
     productImage: string,
     productIngredients: string[]
 }
+
+export interface IOrderFormData {
+    firstName: string;
+    phone: string;
+    email: string;
+    address: string;
+    comment: string;
+}
+
+export interface IOrderFormErrors {
+    firstName: string;
+    phone: string;
+    email: string;
+    address: string;
+    comment: string;
+}

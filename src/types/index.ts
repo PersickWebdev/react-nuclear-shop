@@ -1,1 +1,6 @@
-export type { ICategory, IProduct } from './interfaces';
+export type {
+    ICategory,
+    IProduct,
+    IOrderFormData,
+    IOrderFormErrors
+} from './interfaces';

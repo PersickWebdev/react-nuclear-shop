@@ -1,0 +1,15 @@
+@import '../../scss/colors';
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.order-form {
+  width: 300px;
+  margin: 0 auto;
+
+  &__buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

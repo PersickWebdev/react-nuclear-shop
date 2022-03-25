@@ -7,6 +7,11 @@
   margin-top: 30px;
   background-color: $gray-dark;
 
+  @media (max-width: 575px) {
+    padding: 10px;
+  }
+
+  // ITEM
   &__item {
     display: flex;
     justify-content: space-between;
@@ -15,6 +20,10 @@
     padding: 10px;
     border-radius: 5px;
     background-color: $gray-middle;
+
+    @media (max-width: 475px) {
+      display: block;
+    }
   }
 
   &__section {
@@ -25,13 +34,29 @@
 
   &__section:first-child {
     justify-content: flex-start;
+
+    @media (max-width: 475px) {
+      margin-bottom: 15px;
+    }
   }
 
   &__section:last-child {
     width: 30%;
+
+    @media (max-width: 768px) {
+      width: 40%;
+    }
+
+    @media (max-width: 575px) {
+      width: 50%;
+    }
+
+    @media (max-width: 475px) {
+      width: 100%;
+    }
   }
 
-  // IMAGE
+  // ITEM: IMAGE
   &__item-image-box {
     display: flex;
     justify-content: center;
@@ -40,6 +65,10 @@
     height: 70px;
     margin-right: 20px;
     background-color: $black-dark;
+
+    @media (max-width: 575px) {
+      display: none;
+    }
   }
 
   &__item-image {
@@ -47,12 +76,12 @@
     width: 60px;
   }
 
-  // NAME
+  // ITEM: NAME
   &__item-name {
     @include text(14px, 600, uppercase, none, $gray-dark);
   }
 
-  // CONTROLS
+  // ITEM: CONTROLS
   &__item-controls {
     display: flex;
     justify-content: space-between;
@@ -98,7 +127,7 @@
     fill: $nuclear-middle;
   }
 
-  &__item-icon-box.remove:hover .cart__item-icon{
+  &__item-icon-box.remove:hover .cart__item-icon {
     fill: $red-middle;
   }
 
@@ -106,12 +135,12 @@
     @include text(16px, 600, none, none, $gray-dark);
   }
 
-  // PRICE
+  // ITEM: PRICE
   &__item-price {
     @include text(16px, 600, none, none, $gray-dark);
   }
 
-  // ACTIONS
+  // ITEM: ACTIONS
   &__actions {
     display: flex;
     justify-content: center;
@@ -121,5 +150,17 @@
   &__message {
     text-align: center;
     @include text(14px, 600, uppercase, none, $gray-light);
+  }
+
+  // ORDER
+  &__order {
+    margin-top: 10px;
+    border-top: 2px solid $nuclear-middle;
+  }
+
+  &__order-heading {
+    margin: 10px 0 20px 0;
+    text-align: center;
+    @include text(18px, 600, uppercase, none, $nuclear-middle);
   }
 }

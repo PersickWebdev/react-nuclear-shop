@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Cart.module.scss';
 import { useDispatch } from 'react-redux';
-import { CartItem } from '../../components';
-import { Button } from '../../ui';
-import { IProduct } from '../../types';
 import { CartActions } from '../../redux/actionCreators';
+import { CartItem, OrderForm } from '../../components';
+import { Button } from '../../ui';
+import { useValidator } from '../../utils';
+import { IProduct, IOrderFormData, IOrderFormErrors } from '../../types';
 
 interface ICart {
     products: IProduct[];
@@ -13,6 +14,22 @@ interface ICart {
 
 const Cart = ({ products, totalItemsPrice }: ICart) => {
     const dispatch = useDispatch();
+    const { firstNameValidator } = useValidator();
+    const [ isOrderFormShown, setIsOrderFormShown ] = useState<boolean>(false);
+    const [ orderFormData, setOrderFormData ] = useState<IOrderFormData>({
+        firstName: '',
+        phone: '',
+        email: '',
+        address: '',
+        comment: '',
+    });
+    const [ orderFormErrors, setOrderFormErrors ] = useState<IOrderFormErrors>({
+        firstName: '',
+        phone: '',
+        email: '',
+        address: '',
+        comment: '',
+    });
 
     const cartItems: any = [];
 
@@ -38,7 +55,33 @@ const Cart = ({ products, totalItemsPrice }: ICart) => {
 
     const itemRemoveHandler = (itemId: number) => {
         dispatch(CartActions.remove(itemId));
-    }
+    };
+
+    const submitHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+
+        const isDataValid = () => {
+            const isFirstNameValid = firstNameValidator({ orderFormData, setOrderFormErrors });
+
+            return isFirstNameValid
+        };
+
+        if (!isDataValid()) return;
+
+        const orderData = {
+            firstName: orderFormData.firstName,
+            phone: orderFormData.phone,
+            email: orderFormData.email,
+            address: orderFormData.address,
+            comment: orderFormData.comment,
+        }
+        console.log('Cart - orderData: ', orderData);
+    };
+
+    const cancelHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+        setIsOrderFormShown(false);
+    };
 
     const cartItemElements = cartItems.map((item: any) => {
         return (
@@ -54,6 +97,12 @@ const Cart = ({ products, totalItemsPrice }: ICart) => {
             />
         );
     });
+
+    useEffect(() => {
+        if (!cartItemElements.length) {
+            setIsOrderFormShown(false);
+        }
+    }, [cartItemElements])
 
     return (
         <div className={styles['cart']}>
@@ -71,11 +120,28 @@ const Cart = ({ products, totalItemsPrice }: ICart) => {
                         id="button-order"
                         name="button-order"
                         stylesPreset="success"
+                        action={() => setIsOrderFormShown(true)}
                     >
                         Order for ${totalItemsPrice}
                     </Button>
                 }
             </div>
+            {isOrderFormShown
+                ?
+                <div className={styles['cart__order']}>
+                    <h3 className={styles['cart__order-heading']}>
+                        Order Checkout
+                    </h3>
+                    <OrderForm
+                        setOrderFormData={setOrderFormData}
+                        orderFormErrors={orderFormErrors}
+                        submitHandler={submitHandler}
+                        cancelHandler={cancelHandler}
+                    />
+                </div>
+                :
+                <></>
+            }
         </div>
     );
 };

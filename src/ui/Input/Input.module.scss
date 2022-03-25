@@ -1,0 +1,37 @@
+@import '../../scss/colors';
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.input {
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    @include text(16px, 400, none, none, $gray-light);
+  }
+
+  &__element {
+    margin: 8px 0 5px 0;
+    padding: 8px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid $gray-dark;
+    background-color: $gray-middle;
+    transition: $transition;
+    @include text(13px, 400, none, none, $gray-dark);
+  }
+
+  &__element:focus {
+    @include text(13px, 400, none, none, $gray-dark);
+    background-color: $gray-light;
+    border: 1px solid $gray-light;
+  }
+
+  &.error .input__element {
+    border: 1px solid $red-middle;
+  }
+
+  &__error {
+    @include text(13px, 400, none, none, $red-middle);
+  }
+}
