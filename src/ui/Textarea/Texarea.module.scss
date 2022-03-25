@@ -1,0 +1,40 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+@import '../../scss/variables';
+
+.textarea {
+
+  &__label {
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    @include text(16px, 400, none, none, $gray-light);
+  }
+
+  &__element {
+    margin-bottom: 3px;
+    padding: 8px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid $gray-dark;
+    background-color: $gray-middle;
+    transition: $transition;
+    resize: vertical;
+    font-family: inherit;
+    @include text(13px, 400, none, none, $gray-dark);
+  }
+
+  &__element:focus {
+    @include text(13px, 400, none, none, $gray-dark);
+    background-color: $gray-light;
+    border: 1px solid $gray-light;
+  }
+
+  &.error .textarea__element {
+    border: 1px solid $red-middle;
+  }
+
+  &__error {
+    @include text(13px, 400, none, none, $red-middle);
+  }
+}

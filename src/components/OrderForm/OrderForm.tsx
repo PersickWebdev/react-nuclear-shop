@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './OrderForm.module.scss';
-import { Input, Button } from '../../ui';
+import { Input, Button, Textarea } from '../../ui';
 import { IOrderFormErrors } from '../../types';
 
 interface IOrderForm {
@@ -52,6 +52,16 @@ const OrderForm = ({ setOrderFormData, orderFormErrors, setOrderFormErrors, subm
                     name='address'
                     label='Address:'
                     error={orderFormErrors.address}
+                    setOrderFormData={setOrderFormData}
+                    setOrderFormErrors={setOrderFormErrors}
+                />
+            </div>
+            <div className={styles['order-form__section']}>
+                <Textarea
+                    id='comment'
+                    name='comment'
+                    label='Your comment:'
+                    error={orderFormErrors.comment}
                     setOrderFormData={setOrderFormData}
                     setOrderFormErrors={setOrderFormErrors}
                 />

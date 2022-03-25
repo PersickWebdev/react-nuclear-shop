@@ -18,7 +18,10 @@ const ErrorMessages = {
         noSpecialCharacters: `Special characters allowed: space   .   ,   -   '`,
     },
     phone: 'Wrong format. Example: +380630001122',
-    email: 'Wrong format. Example: test@gmail.com'
+    email: 'Wrong format. Example: test@gmail.com',
+    comment: {
+        tooLong: 'Too long. No more than 255 characters'
+    }
 }
 
 const useValidator = () => {
@@ -105,7 +108,20 @@ const useValidator = () => {
         return true;
     };
 
-    return { firstNameValidator, phoneValidator, emailValidator, addressValidator };
+    const commentValidator = ({ orderFormData, setOrderFormErrors }: IValidator) => {
+        if (orderFormData.comment.length > 255) {
+            setOrderFormErrors((state: any) => {
+               return {
+                   ...state,
+                   comment: ErrorMessages.comment.tooLong
+               }
+            });
+            return false;
+        }
+        return true;
+    };
+
+    return { firstNameValidator, phoneValidator, emailValidator, addressValidator, commentValidator };
 };
 
 export default useValidator;

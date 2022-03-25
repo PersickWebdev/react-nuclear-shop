@@ -14,7 +14,7 @@ interface ICart {
 
 const Cart = ({ products, totalItemsPrice }: ICart) => {
     const dispatch = useDispatch();
-    const { firstNameValidator, phoneValidator, emailValidator, addressValidator } = useValidator();
+    const { firstNameValidator, phoneValidator, emailValidator, addressValidator, commentValidator } = useValidator();
     const [ isOrderFormShown, setIsOrderFormShown ] = useState<boolean>(false);
     const [ orderFormData, setOrderFormData ] = useState<IOrderFormData>({
         firstName: '',
@@ -65,11 +65,13 @@ const Cart = ({ products, totalItemsPrice }: ICart) => {
             const isPhoneValid = phoneValidator({ orderFormData, setOrderFormErrors });
             const isEmailValid = emailValidator({ orderFormData, setOrderFormErrors });
             const isAddressValid = addressValidator({ orderFormData, setOrderFormErrors });
+            const isCommentValid = commentValidator({ orderFormData, setOrderFormErrors });
 
             return isFirstNameValid
                 && isPhoneValid
                 && isEmailValid
                 && isAddressValid
+                && isCommentValid
         };
 
         if (!isDataValid()) return;

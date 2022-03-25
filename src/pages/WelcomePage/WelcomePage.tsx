@@ -1,14 +1,8 @@
 import React from 'react';
 import styles from './WelcomePage.module.scss';
 import { Link } from 'react-router-dom';
-import { Button } from '../../ui';
 
 const WelcomePage = () => {
-    const testButtonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault();
-        console.log('testButtonHandler: ', event.currentTarget.name);
-    };
-
     return (
         <div className={styles['welcome-page']}>
             <div className={styles['container']}>
@@ -48,20 +42,6 @@ const WelcomePage = () => {
                         >
                             GO TO STORE
                         </Link>
-                        <Button
-                            id='button-test'
-                            name='button-test'
-                            action={testButtonHandler}
-                            // stylesPreset='link'
-                        >
-                            TEST
-                            {/*<Link*/}
-                            {/*    className={styles['welcome-page__link']}*/}
-                            {/*    to="/store"*/}
-                            {/*>*/}
-                            {/*    TEST*/}
-                            {/*</Link>*/}
-                        </Button>
                     </div>
                 </div>
             </div>
