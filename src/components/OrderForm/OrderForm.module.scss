@@ -6,8 +6,11 @@
   width: 300px;
   margin: 0 auto;
 
+  &__section {
+    margin-bottom: 15px;
+  }
+
   &__buttons {
-    margin-top: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;

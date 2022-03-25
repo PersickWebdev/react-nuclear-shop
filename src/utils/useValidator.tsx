@@ -1,3 +1,5 @@
+import { RegularExpressions } from '../utils';
+
 interface IValidator {
     orderFormData: any;
     setOrderFormErrors: (state: any) => void;
@@ -13,32 +15,29 @@ const ErrorMessages = {
     isRequired: 'This field is required',
     firstName: {
         tooShort: 'Name is too short. At least 2 characters',
-        tooLong: 'Name is too long. No more than 250 characters',
-    }
+        noSpecialCharacters: `Special characters allowed: space   .   ,   -   '`,
+    },
+    phone: 'Wrong format. Example: +380630001122',
+    email: 'Wrong format. Example: test@gmail.com'
 }
 
 const useValidator = () => {
-    // const isNotEmpty = ({ orderFormData, key, setOrderFormErrors }: IIsNotEmpty) => {
-    //     if (!orderFormData[key]) {
-    //         setOrderFormErrors((state: any) => {
-    //             return {
-    //                 ...state,
-    //                 [key]: ErrorMessages.isRequired
-    //             }
-    //         });
-    //         return false;
-    //     } else {
-    //         setOrderFormErrors((state: any) => {
-    //             return {
-    //                 ...state,
-    //                 [key]: ''
-    //             }
-    //         });
-    //         return false;
-    //     }
-    // };
+    const isNotEmpty = ({ orderFormData, key, setOrderFormErrors }: IIsNotEmpty) => {
+        if (!orderFormData[key]) {
+            setOrderFormErrors((state: any) => {
+                return {
+                    ...state,
+                    [key]: ErrorMessages.isRequired
+                }
+            });
+            return false;
+        }
+        return true;
+    };
 
     const firstNameValidator = ({ orderFormData, setOrderFormErrors }: IValidator) => {
+        if (!isNotEmpty({ orderFormData, key: 'firstName', setOrderFormErrors })) return false;
+
         if (orderFormData.firstName.length < 2) {
             setOrderFormErrors((state: any) => {
                 return {
@@ -47,18 +46,66 @@ const useValidator = () => {
                 }
             });
             return false;
-        } else {
+        }
+
+        if (!RegularExpressions.name.test(orderFormData.firstName)) {
             setOrderFormErrors((state: any) => {
                 return {
                     ...state,
-                    firstName: ''
+                    firstName: ErrorMessages.firstName.noSpecialCharacters
                 }
             });
-            return true;
+            return false;
         }
+
+        return true;
     };
 
-    return { firstNameValidator };
+    const phoneValidator = ({ orderFormData, setOrderFormErrors }: IValidator) => {
+        if (!isNotEmpty({ orderFormData, key: 'phone', setOrderFormErrors })) return false;
+
+        if (!RegularExpressions.phone.test(orderFormData.phone)) {
+            setOrderFormErrors((state: any) => {
+                return {
+                    ...state,
+                    phone: ErrorMessages.phone,
+                }
+            });
+            return false;
+        }
+
+        return true;
+    };
+
+    const emailValidator = ({ orderFormData, setOrderFormErrors }: IValidator) => {
+        if (!isNotEmpty({ orderFormData, key: 'email', setOrderFormErrors })) return false;
+
+        if (!RegularExpressions.email.test(orderFormData.email)) {
+            setOrderFormErrors((state: any) => {
+                return {
+                    ...state,
+                    email: ErrorMessages.email,
+                }
+            });
+            return false;
+        }
+        return true;
+    };
+
+    const addressValidator = ({ orderFormData, setOrderFormErrors }: IValidator) => {
+        if (!isNotEmpty({ orderFormData, key: 'address', setOrderFormErrors })) {
+            setOrderFormErrors((state: any) => {
+                return {
+                    ...state,
+                    address: ErrorMessages.isRequired,
+                }
+            });
+            return false;
+        }
+        return true;
+    };
+
+    return { firstNameValidator, phoneValidator, emailValidator, addressValidator };
 };
 
 export default useValidator;

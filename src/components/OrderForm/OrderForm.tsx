@@ -6,11 +6,12 @@ import { IOrderFormErrors } from '../../types';
 interface IOrderForm {
     orderFormErrors: IOrderFormErrors;
     setOrderFormData: (state: any) => void;
+    setOrderFormErrors: (state: any) => void;
     submitHandler: (event: React.MouseEvent<HTMLButtonElement>) => void;
     cancelHandler: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const OrderForm = ({ setOrderFormData, orderFormErrors, submitHandler, cancelHandler }:IOrderForm) => {
+const OrderForm = ({ setOrderFormData, orderFormErrors, setOrderFormErrors, submitHandler, cancelHandler }:IOrderForm) => {
     return (
         <form
             className={styles['order-form']}
@@ -22,6 +23,7 @@ const OrderForm = ({ setOrderFormData, orderFormErrors, submitHandler, cancelHan
                     label='First name:'
                     error={orderFormErrors.firstName}
                     setOrderFormData={setOrderFormData}
+                    setOrderFormErrors={setOrderFormErrors}
                 />
             </div>
             <div className={styles['order-form__section']}>
@@ -31,6 +33,7 @@ const OrderForm = ({ setOrderFormData, orderFormErrors, submitHandler, cancelHan
                     label='Phone:'
                     error={orderFormErrors.phone}
                     setOrderFormData={setOrderFormData}
+                    setOrderFormErrors={setOrderFormErrors}
                 />
             </div>
             <div className={styles['order-form__section']}>
@@ -40,6 +43,7 @@ const OrderForm = ({ setOrderFormData, orderFormErrors, submitHandler, cancelHan
                     label='Email:'
                     error={orderFormErrors.email}
                     setOrderFormData={setOrderFormData}
+                    setOrderFormErrors={setOrderFormErrors}
                 />
             </div>
             <div className={styles['order-form__section']}>
@@ -49,6 +53,7 @@ const OrderForm = ({ setOrderFormData, orderFormErrors, submitHandler, cancelHan
                     label='Address:'
                     error={orderFormErrors.address}
                     setOrderFormData={setOrderFormData}
+                    setOrderFormErrors={setOrderFormErrors}
                 />
             </div>
             <div className={styles['order-form__buttons']}>

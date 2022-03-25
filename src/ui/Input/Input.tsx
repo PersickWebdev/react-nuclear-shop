@@ -7,9 +7,10 @@ interface IInput {
     label: string;
     error: string;
     setOrderFormData: (state: any) => void;
+    setOrderFormErrors: (state: any) => void;
 }
 
-const Input = ({ id, name, label, error, setOrderFormData }:IInput) => {
+const Input = ({ id, name, label, error, setOrderFormData, setOrderFormErrors }:IInput) => {
     const [ inputValue, setInputValue ] = useState<string>('');
 
     const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -18,6 +19,12 @@ const Input = ({ id, name, label, error, setOrderFormData }:IInput) => {
             return {
                 ...state,
                 [name]: event.target.value
+            }
+        });
+        setOrderFormErrors && setOrderFormErrors((state: any) => {
+            return {
+                ...state,
+                [name]: ''
             }
         });
     }
