@@ -26,11 +26,14 @@ const StorePage = () => {
     const { data } = useSelector((state) => state.DataReducer);
     const [ currentCategory, setCurrentCategory ] = useState<string>('');
     const [ currentCategoryProducts, setCurrentCategoryProducts ] = useState<any>([]);
+    const [ searchValue, setSearchValue ] = useState<string>('');
 
     useEffect(() => {
         setCurrentCategoryProducts(getProducts(data, currentCategory));
         document.body.style.overflow = '';
     }, [currentCategory]);
+
+    console.log('StorePage - searchValue: ', searchValue);
 
     return (
         <div className={styles['store-page']}>
@@ -38,6 +41,7 @@ const StorePage = () => {
                 data={data}
                 currentCategory={currentCategory}
                 setCurrentCategory={setCurrentCategory}
+                setSearchValue={setSearchValue}
             />
             <div className={styles['container']}>
                 <Store

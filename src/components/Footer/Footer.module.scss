@@ -5,6 +5,7 @@
 .footer {
   padding: 20px 0;
   background-color: $gray-dark;
+  border-top: 2px solid $nuclear-middle;
 
   & .container {
     @include container();

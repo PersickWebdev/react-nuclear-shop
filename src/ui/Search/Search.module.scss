@@ -1,0 +1,42 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+@import '../../scss/variables';
+
+.search {
+  display: flex;
+  align-items: center;
+  width: 300px;
+
+  &__element {
+    width: 100%;
+    margin-bottom: 3px;
+    padding: 8px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid $gray-dark;
+    background-color: $gray-middle;
+    transition: $transition;
+    @include text(13px, 400, none, none, $gray-dark);
+  }
+
+  &__element::placeholder {
+    @include text(13px, 400, none, none, $gray-dark);
+  }
+
+  &__element:focus {
+    background-color: $gray-light;
+    border: 1px solid $gray-light;
+  }
+
+  &__icon-box {
+
+  }
+
+  &__icon {
+
+  }
+
+  &__icon-box:hover .search__icon {
+
+  }
+}
