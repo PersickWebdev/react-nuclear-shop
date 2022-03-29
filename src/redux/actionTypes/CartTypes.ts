@@ -3,4 +3,5 @@ export const CartTypes = {
     decrease: 'CART/DECREASE_BY_ONE',
     increase: 'CART/INCREASE_BY_ONE',
     remove: 'CART/REMOVE_ITEM',
+    clear: 'CART/CLEAR_CART',
 }

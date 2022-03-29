@@ -77,6 +77,14 @@ export const CartReducer = (state = initialState, action: any) => {
                 totalItemsPrice: getTotalItemsPrice(newItemsRemoved),
             }
 
+        case CartTypes.clear:
+            return {
+                ...state,
+                products: [],
+                totalItemsCount: 0,
+                totalItemsPrice: 0,
+            }
+
         default:
             return state;
     }

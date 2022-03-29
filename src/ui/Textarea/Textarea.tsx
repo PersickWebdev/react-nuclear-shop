@@ -42,7 +42,7 @@ const Textarea = ({ id, name, label, error, setOrderFormData, setOrderFormErrors
                     className={styles['textarea__element']}
                     id={id}
                     name={name}
-                    value={elementValue ?? ''}
+                    value={elementValue}
                     onChange={onChangeHandler}
                 />
             </label>

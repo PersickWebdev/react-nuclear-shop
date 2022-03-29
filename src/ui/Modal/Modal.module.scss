@@ -1,0 +1,72 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+@import '../../scss/variables';
+
+.modal {
+  margin: 0 auto;
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(12px);
+  background: rgba(8, 19, 62, 0.2);
+  transition: $transition;
+  opacity: 0;
+  visibility: hidden;
+  z-index: -100;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    z-index: 100;
+  }
+
+  &__content {
+    padding: 20px;
+    width: 300px;
+    background-color: $gray-dark;
+    border: 1px solid $nuclear-middle;
+    border-radius: 5px;
+  }
+
+  &__heading {
+    margin-bottom: 20px;
+    text-align: center;
+    @include text(16px, 600, uppercase, none, $nuclear-middle);
+  }
+
+  &__message {
+    text-align: center;
+    @include text(16px, 400, none, none, $gray-light);
+  }
+
+  &__body {
+    margin-bottom: 20px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__link {
+    display: block;
+    padding: 8px 10px;
+    transition: all 0.3s ease;
+    background-color: $nuclear-middle;
+    border: 1px solid $gray-dark;
+    border-radius: 5px;
+    @include text(16px, 600, uppercase, none, $gray-dark);
+  }
+
+  &__link:hover {
+    color: $nuclear-middle;
+    background-color: $gray-dark;
+    border: 1px solid $nuclear-middle;
+  }
+}

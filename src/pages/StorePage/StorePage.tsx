@@ -29,6 +29,7 @@ const StorePage = () => {
 
     useEffect(() => {
         setCurrentCategoryProducts(getProducts(data, currentCategory));
+        document.body.style.overflow = '';
     }, [currentCategory]);
 
     return (

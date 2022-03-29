@@ -28,5 +28,11 @@ export const CartActions = {
             type: CartTypes.remove,
             payload: itemId,
         }
-    }
+    },
+
+    clear: () => {
+        return {
+            type: CartTypes.clear,
+        }
+    },
 }

@@ -19,9 +19,7 @@ const ErrorMessages = {
     },
     phone: 'Wrong format. Example: +380630001122',
     email: 'Wrong format. Example: test@gmail.com',
-    comment: {
-        tooLong: 'Too long. No more than 255 characters'
-    }
+    comment: 'Too long. No more than 155 characters'
 }
 
 const useValidator = () => {
@@ -113,7 +111,7 @@ const useValidator = () => {
             setOrderFormErrors((state: any) => {
                return {
                    ...state,
-                   comment: ErrorMessages.comment.tooLong
+                   comment: ErrorMessages.comment
                }
             });
             return false;
@@ -121,7 +119,13 @@ const useValidator = () => {
         return true;
     };
 
-    return { firstNameValidator, phoneValidator, emailValidator, addressValidator, commentValidator };
+    return {
+        firstNameValidator,
+        phoneValidator,
+        emailValidator,
+        addressValidator,
+        commentValidator
+    };
 };
 
 export default useValidator;

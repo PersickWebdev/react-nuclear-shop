@@ -3,7 +3,7 @@ import styles from './Cart.module.scss';
 import { useDispatch } from 'react-redux';
 import { CartActions } from '../../redux/actionCreators';
 import { CartItem, OrderForm } from '../../components';
-import { Button } from '../../ui';
+import { Button, Modal } from '../../ui';
 import { useValidator } from '../../utils';
 import { IProduct, IOrderFormData, IOrderFormErrors } from '../../types';
 
@@ -30,6 +30,7 @@ const Cart = ({ products, totalItemsPrice }: ICart) => {
         address: '',
         comment: '',
     });
+    const [ isModalVisible, setIsModalVisible ] = useState<boolean>(false);
 
     const cartItems: any = [];
 
@@ -83,7 +84,12 @@ const Cart = ({ products, totalItemsPrice }: ICart) => {
             address: orderFormData.address,
             comment: orderFormData.comment,
         }
+
         console.log('Cart - orderData: ', orderData);
+
+        setIsModalVisible(true);
+
+        dispatch(CartActions.clear());
     };
 
     const cancelHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -151,6 +157,14 @@ const Cart = ({ products, totalItemsPrice }: ICart) => {
                 :
                 <></>
             }
+            <Modal
+                heading='Your order confirmed!'
+                message='Thanks for your order! Our manager will contact you as soon as possible. Have a nice time :)'
+                isModalVisible={isModalVisible}
+                setIsModalVisible={setIsModalVisible}
+            >
+                <></>
+            </Modal>
         </div>
     );
 };
