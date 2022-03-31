@@ -12,7 +12,7 @@
     justify-content: space-between;
     align-items: center;
 
-    @media (max-width: 575px) {
+    @media (max-width: 650px) {
       flex-direction: column;
     }
   }

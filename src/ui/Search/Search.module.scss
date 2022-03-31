@@ -7,10 +7,14 @@
   align-items: center;
   width: 300px;
 
+  @media (max-width: 650px) {
+    margin-bottom: 10px;
+  }
+
   &__element {
     width: 100%;
-    margin-bottom: 3px;
     padding: 8px;
+    margin-right: 5px;
     outline: none;
     border-radius: 5px;
     border: 1px solid $gray-dark;
@@ -29,14 +33,28 @@
   }
 
   &__icon-box {
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 30px;
+    background-color: $nuclear-middle;
+    border: 1px solid $gray-dark;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: $transition;
   }
 
   &__icon {
+    fill: $gray-dark;
+  }
 
+  &__icon-box:hover {
+    border: 1px solid $nuclear-middle;
+    background-color: $gray-dark;
   }
 
   &__icon-box:hover .search__icon {
-
+    fill: $nuclear-middle;
   }
 }
