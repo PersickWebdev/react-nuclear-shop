@@ -1,17 +1,19 @@
 import React from 'react';
 import styles from './ControlPanel.module.scss';
 import { CategoryItem } from '../../components';
+import { useDispatch } from 'react-redux';
 import { Search } from '../../ui';
 import { ICategory } from '../../types';
+import {DataActions} from "../../redux/actionCreators";
 
 interface IControlPanel {
     data: ICategory[];
     currentCategory: string;
     setCurrentCategory: (name: string) => void;
-    setSearchValue: (state: string) => void;
 }
 
-const ControlPanel = ({ data, currentCategory, setCurrentCategory, setSearchValue }: IControlPanel) => {
+const ControlPanel = ({ data, currentCategory, setCurrentCategory }: IControlPanel) => {
+    const dispatch = useDispatch();
     const categoryElements = data.map((category: ICategory) => {
         return (
             <CategoryItem
@@ -23,6 +25,11 @@ const ControlPanel = ({ data, currentCategory, setCurrentCategory, setSearchValu
         );
     });
 
+    const onClickHandler = () => {
+        dispatch(DataActions.clearFiltered());
+        setCurrentCategory('all');
+    };
+
     return (
         <div className={styles['control-panel']}>
             <div className={styles['container']}>
@@ -31,14 +38,13 @@ const ControlPanel = ({ data, currentCategory, setCurrentCategory, setSearchValu
                         id='search'
                         name='search'
                         placeholder='Enter product'
-                        setSearchValue={setSearchValue}
                     />
                 {/*</div>*/}
                 <div className={styles['control-panel__categories-box']}>
                     <ul className={styles['control-panel__categories-list']}>
                         <li
                             className={`${styles['control-panel__categories-list-item']} ${currentCategory === 'all' ? styles['isActive'] : ''}`}
-                            onClick={() => setCurrentCategory('all')}
+                            onClick={onClickHandler}
                         >
                             All
                         </li>

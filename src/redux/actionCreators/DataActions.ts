@@ -7,4 +7,15 @@ export const DataActions = {
             payload: data,
         }
     },
+    filter: (filterValue: string) => {
+        return {
+            type: DataTypes.filter,
+            payload: filterValue,
+        }
+    },
+    clearFiltered: () => {
+        return {
+            type: DataTypes.clearFiltered,
+        }
+    }
 }

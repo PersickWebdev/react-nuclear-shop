@@ -1,3 +1,5 @@
+import { ICategory, IProduct } from '../types';
+
 const useUtils = () => {
 
     // 'processingPattern':
@@ -50,11 +52,29 @@ const useUtils = () => {
             .reduce((sum, item: any) => sum + item.productPrice, 0);
     }
 
+    const getProducts = (categories: ICategory[], targetCategory: string) => {
+        let array: IProduct[] = [];
+
+        categories.forEach((item: ICategory) => {
+            if (item.categoryName === targetCategory) {
+                array.push(...item.categoryProducts);
+                return;
+            } else if (targetCategory === 'all' || targetCategory === '') {
+                array.push(...item.categoryProducts);
+                return;
+            }
+            return;
+        });
+
+        return array;
+    };
+
     return {
         processArrayToString,
         getAdditionalClass,
         getTotalItemsCount,
-        getTotalItemsPrice
+        getTotalItemsPrice,
+        getProducts
     };
 };
 

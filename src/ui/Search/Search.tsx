@@ -1,20 +1,27 @@
 import React, { useState } from 'react';
-import styles from './Search.module.scss';
+import { useDispatch } from 'react-redux';
 import { Icons } from '../../ui';
+import { DataActions } from '../../redux/actionCreators';
+import styles from './Search.module.scss';
 
 interface ISearch {
     id: string;
     name: string;
     placeholder: string;
-    setSearchValue: (state: any) => void;
 }
 
-const Search = ({ id, name, placeholder, setSearchValue }: ISearch) => {
+const Search = ({ id, name, placeholder }: ISearch) => {
+    const dispatch = useDispatch();
+
     const [ inputValue, setInputValue ] = useState<string>('');
 
     const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(event.target.value);
-    }
+    };
+
+    const searchHandler = () => {
+        dispatch(DataActions.filter(inputValue));
+    };
 
     return (
         <div className={styles['search']}>
@@ -30,7 +37,7 @@ const Search = ({ id, name, placeholder, setSearchValue }: ISearch) => {
             <div className={styles['search__icon-box']}>
                 {Icons.search({
                     className: `${styles['search__icon']}`
-                }, () => setSearchValue(inputValue))}
+                }, searchHandler)}
             </div>
         </div>
     );

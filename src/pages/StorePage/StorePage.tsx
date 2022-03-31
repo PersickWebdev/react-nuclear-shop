@@ -1,39 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Store, ControlPanel } from '../../components';
-import { ICategory, IProduct } from '../../types';
+import { useUtils } from '../../utils';
 import styles from './StorePage.module.scss';
 
-const getProducts = (categories: ICategory[], targetCategory: string) => {
-    let array: IProduct[] = [];
-
-    categories.forEach((item: ICategory) => {
-        if (item.categoryName === targetCategory) {
-            array.push(...item.categoryProducts);
-            return;
-        } else if (targetCategory === 'all') {
-            array.push(...item.categoryProducts);
-            return;
-        }
-        return;
-    });
-
-    return array;
-};
-
 const StorePage = () => {
+    const { getProducts } = useUtils();
     // @ts-ignore
     const { data } = useSelector((state) => state.DataReducer);
+    // @ts-ignore
+    const { filteredData } = useSelector((state) => state.DataReducer);
     const [ currentCategory, setCurrentCategory ] = useState<string>('');
     const [ currentCategoryProducts, setCurrentCategoryProducts ] = useState<any>([]);
-    const [ searchValue, setSearchValue ] = useState<string>('');
 
     useEffect(() => {
-        setCurrentCategoryProducts(getProducts(data, currentCategory));
         document.body.style.overflow = '';
-    }, [currentCategory]);
 
-    console.log('StorePage - searchValue: ', searchValue);
+        if (filteredData.length) {
+            setCurrentCategoryProducts(filteredData);
+        } else {
+            setCurrentCategoryProducts(getProducts(data, currentCategory));
+        }
+
+    }, [currentCategory, filteredData]);
+
+    console.log('StorePage - data: ', data);
+    console.log('StorePage - filteredData: ', filteredData);
+    console.log('StorePage - currentCategory: ', currentCategory);
 
     return (
         <div className={styles['store-page']}>
@@ -41,7 +34,6 @@ const StorePage = () => {
                 data={data}
                 currentCategory={currentCategory}
                 setCurrentCategory={setCurrentCategory}
-                setSearchValue={setSearchValue}
             />
             <div className={styles['container']}>
                 <Store
