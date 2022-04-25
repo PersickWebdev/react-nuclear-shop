@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ControlPanel.module.scss';
 import { useDispatch } from 'react-redux';
-import {DataActions} from "../../redux/actionCreators";
+import { DataActions } from '../../redux/actionCreators';
 
 interface ICategoryItem {
     name: string;

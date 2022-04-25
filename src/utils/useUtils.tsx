@@ -3,8 +3,8 @@ import { ICategory, IProduct } from '../types';
 const useUtils = () => {
 
     // 'processingPattern':
-    //      - sentence
-    //      - element
+    //      - sentence (first letter to uppercase, period after last letter)
+    //      - element (first letter to uppercase)
     const processArrayToString = (inputArray: string[], processingPattern: string = 'element') => {
         if (!inputArray.length) return [];
 

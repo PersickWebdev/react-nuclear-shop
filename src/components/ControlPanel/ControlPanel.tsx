@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './ControlPanel.module.scss';
-import { CategoryItem } from '../../components';
 import { useDispatch } from 'react-redux';
+import { CategoryItem } from '../../components';
+import { DataActions } from '../../redux/actionCreators';
 import { Search } from '../../ui';
 import { ICategory } from '../../types';
-import {DataActions} from "../../redux/actionCreators";
 
 interface IControlPanel {
     data: ICategory[];

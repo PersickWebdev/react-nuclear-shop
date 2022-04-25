@@ -24,10 +24,6 @@ const StorePage = () => {
 
     }, [currentCategory, filteredData]);
 
-    console.log('StorePage - data: ', data);
-    console.log('StorePage - filteredData: ', filteredData);
-    console.log('StorePage - currentCategory: ', currentCategory);
-
     return (
         <div className={styles['store-page']}>
             <ControlPanel

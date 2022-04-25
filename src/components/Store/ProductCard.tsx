@@ -42,7 +42,6 @@ const ProductCard = ({
             productIngredients,
         }
         dispatch(CartActions.set(product));
-        console.log('ProductCard - productToCart: ', product);
     }
 
     return (

@@ -1,4 +1,11 @@
 // Conditions:
+//      + name:
+//          - only latin characters;
+//          - special characters allowed: " ", ".", ",", "'", "-";
+//      + email:
+//          - only latin characters;
+//          - all special characters allowed;
+//          - only one "@";
 //      + password:
 //          - only latin characters;
 //          - at least 8 characters;

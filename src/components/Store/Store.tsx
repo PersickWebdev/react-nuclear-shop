@@ -8,7 +8,6 @@ interface IStore {
 }
 
 const Store = ({ currentCategoryProducts }: IStore) => {
-    console.log('Store - currentCategoryProducts: ', currentCategoryProducts);
     const productElements = currentCategoryProducts.map((item: IProduct) => {
         return (
             <ProductCard
