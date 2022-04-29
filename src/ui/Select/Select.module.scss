@@ -1,0 +1,57 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+@import '../../scss/variables';
+
+.select {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  position: relative;
+
+  &__input {
+    width: 100%;
+    padding: 8px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid $gray-dark;
+    background-color: $gray-middle;
+    transition: $transition;
+    @include text(13px, 400, none, none, $gray-dark);
+  }
+
+  &__input::placeholder {
+    @include text(13px, 400, none, none, $gray-dark);
+  }
+
+  // DROPDOWN
+  &__dropdown {
+    position: absolute;
+    top: 33px;
+    left: 0;
+    width: 198px;
+    list-style: none;
+    border: 1px solid $nuclear-middle;
+    border-radius: 5px;
+    background-color: $gray-dark;
+    transition: $transition;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &__dropdown-item {
+    padding: 5px;
+    transition: $transition;
+    cursor: pointer;
+    @include text(13px, 400, none, none, $gray-light);
+  }
+
+  &__dropdown-item:hover {
+    color: $nuclear-middle;
+    background-color: $gray-middle;
+  }
+
+  &__dropdown.isVisible {
+    opacity: 1;
+    visibility: visible;
+  }
+}

@@ -3,7 +3,7 @@ import styles from './ControlPanel.module.scss';
 import { useDispatch } from 'react-redux';
 import { CategoryItem } from '../../components';
 import { DataActions } from '../../redux/actionCreators';
-import { Search } from '../../ui';
+import { Search, Select } from '../../ui';
 import { ICategory } from '../../types';
 
 interface IControlPanel {
@@ -33,13 +33,20 @@ const ControlPanel = ({ data, currentCategory, setCurrentCategory }: IControlPan
     return (
         <div className={styles['control-panel']}>
             <div className={styles['container']}>
-                {/*<div className={styles['control-panel__search-box']}>*/}
-                    <Search
-                        id='search'
-                        name='search'
-                        placeholder='Enter product'
-                    />
-                {/*</div>*/}
+                <Search
+                    id='search'
+                    name='search'
+                    placeholder='Enter product'
+                />
+                <Select
+                    id='sort-by-price'
+                    name='sortByPrice'
+                    placeholder='Sort by price'
+                    optionList={[
+                        'from lowest to highest',
+                        'from highest to lowest'
+                    ]}
+                />
                 <div className={styles['control-panel__categories-box']}>
                     <ul className={styles['control-panel__categories-list']}>
                         <li
