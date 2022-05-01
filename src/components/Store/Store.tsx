@@ -1,6 +1,6 @@
 import React from 'react';
 import { ProductCard } from '../../components';
-import { ICategory, IProduct } from '../../types';
+import { IProduct } from '../../types';
 import styles from './Store.module.scss';
 
 interface IStore {
@@ -8,6 +8,7 @@ interface IStore {
 }
 
 const Store = ({ currentCategoryProducts }: IStore) => {
+
     const productElements = currentCategoryProducts.map((item: IProduct) => {
         return (
             <ProductCard

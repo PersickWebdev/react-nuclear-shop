@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { Icons } from '../../ui';
 import styles from './Select.module.scss';
+
 
 interface ISelect {
     id: string;
     name: string;
     placeholder: string;
     optionList: string[];
+    setFilterValue: (filterValue: string) => void;
+    currentCategory?: string;
 }
 
-const Select = ({ id, name, placeholder, optionList }:ISelect) => {
+const Select = ({ id, name, placeholder, optionList, setFilterValue, currentCategory }:ISelect) => {
     const [ isVisible, setIsVisible ] = useState<boolean>(false);
     const [ inputValue, setInputValue ] = useState<string>('');
 
@@ -27,6 +31,14 @@ const Select = ({ id, name, placeholder, optionList }:ISelect) => {
         );
     });
 
+    useEffect(() => {
+        setFilterValue(inputValue);
+    }, [ inputValue ]);
+
+    useEffect(() => {
+        setInputValue('');
+    }, [ currentCategory ]);
+
     return (
         <div className={styles['select']}>
             <input
@@ -35,10 +47,13 @@ const Select = ({ id, name, placeholder, optionList }:ISelect) => {
                 id={id}
                 name={name}
                 placeholder={inputValue !== '' ? inputValue : placeholder}
-                onClick={() => setIsVisible(true)}
                 value={inputValue ?? ''}
                 readOnly
+                onClick={() => setIsVisible(true)}
             />
+            {Icons.arrow({
+                className: `${styles['select__icon-arrow']} ${isVisible ? styles['isDown'] : ''}`
+            })}
             <ul className={`${styles['select__dropdown']} ${isVisible ? styles['isVisible'] : ''}`}>
                 {optionItems}
                 <li

@@ -10,9 +10,10 @@ interface IControlPanel {
     data: ICategory[];
     currentCategory: string;
     setCurrentCategory: (name: string) => void;
+    setFilterValue: (filterValue: string) => void;
 }
 
-const ControlPanel = ({ data, currentCategory, setCurrentCategory }: IControlPanel) => {
+const ControlPanel = ({ data, currentCategory, setCurrentCategory, setFilterValue }: IControlPanel) => {
     const dispatch = useDispatch();
     const categoryElements = data.map((category: ICategory) => {
         return (
@@ -37,6 +38,8 @@ const ControlPanel = ({ data, currentCategory, setCurrentCategory }: IControlPan
                     id='search'
                     name='search'
                     placeholder='Enter product'
+                    currentCategory={currentCategory}
+                    setCurrentCategory={setCurrentCategory}
                 />
                 <Select
                     id='sort-by-price'
@@ -46,6 +49,8 @@ const ControlPanel = ({ data, currentCategory, setCurrentCategory }: IControlPan
                         'from lowest to highest',
                         'from highest to lowest'
                     ]}
+                    currentCategory={currentCategory}
+                    setFilterValue={setFilterValue}
                 />
                 <div className={styles['control-panel__categories-box']}>
                     <ul className={styles['control-panel__categories-list']}>

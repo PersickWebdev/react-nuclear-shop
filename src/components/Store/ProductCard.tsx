@@ -3,7 +3,7 @@ import styles from './Store.module.scss';
 import { useDispatch } from 'react-redux';
 import { Icons } from '../../ui';
 import { useUtils } from '../../utils';
-import {CartActions} from "../../redux/actionCreators/CartActions";
+import { CartActions } from '../../redux/actionCreators';
 import { IProduct } from '../../types';
 
 interface IProductCard {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Icons } from '../../ui';
 import { DataActions } from '../../redux/actionCreators';
@@ -8,9 +8,11 @@ interface ISearch {
     id: string;
     name: string;
     placeholder: string;
+    currentCategory?: string;
+    setCurrentCategory?: (state: any) => void;
 }
 
-const Search = ({ id, name, placeholder }: ISearch) => {
+const Search = ({ id, name, placeholder, currentCategory, setCurrentCategory }: ISearch) => {
     const dispatch = useDispatch();
 
     const [ inputValue, setInputValue ] = useState<string>('');
@@ -20,8 +22,13 @@ const Search = ({ id, name, placeholder }: ISearch) => {
     };
 
     const searchHandler = () => {
+        setCurrentCategory && setCurrentCategory('');
         dispatch(DataActions.filter(inputValue));
-    };
+    }
+
+    useEffect(() => {
+        setInputValue('');
+    }, [ currentCategory ]);
 
     return (
         <div className={styles['search']}>
