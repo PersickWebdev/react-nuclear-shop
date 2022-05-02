@@ -51,6 +51,9 @@ const ControlPanel = ({ data, currentCategory, setCurrentCategory, setFilterValu
                     ]}
                     currentCategory={currentCategory}
                     setFilterValue={setFilterValue}
+                    stylesCustom={{
+                        marginRight: '10px'
+                    }}
                 />
                 <div className={styles['control-panel__categories-box']}>
                     <ul className={styles['control-panel__categories-list']}>

@@ -14,6 +14,7 @@ interface ICart {
 
 const Cart = ({ products, totalItemsPrice }: ICart) => {
     const dispatch = useDispatch();
+    // @ts-ignore;
     const { firstNameValidator, phoneValidator, emailValidator, addressValidator, commentValidator } = useValidator();
     const [ isOrderFormShown, setIsOrderFormShown ] = useState<boolean>(false);
     const [ orderFormData, setOrderFormData ] = useState<IOrderFormData>({
@@ -140,6 +141,7 @@ const Cart = ({ products, totalItemsPrice }: ICart) => {
                     </Button>
                 }
             </div>
+
             {isOrderFormShown
                 ?
                 <div className={styles['cart__order']}>

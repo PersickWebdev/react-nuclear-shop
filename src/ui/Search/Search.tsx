@@ -49,7 +49,12 @@ const Search = ({ id, name, placeholder, currentCategory, setCurrentCategory }: 
                 onChange={onChangeHandler}
                 onKeyUp={onKeyUpHandler}
             />
-            <div className={styles['search__icon-box']}>
+            <div
+                className={styles['search__icon-box']}
+                style={{
+                    marginRight: '10px'
+                }}
+            >
                 {Icons.search({
                     className: `${styles['search__icon']}`
                 }, searchHandler)}

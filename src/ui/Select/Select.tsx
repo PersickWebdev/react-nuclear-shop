@@ -10,9 +10,10 @@ interface ISelect {
     optionList: string[];
     setFilterValue: (filterValue: string) => void;
     currentCategory?: string;
+    stylesCustom?: any;
 }
 
-const Select = ({ id, name, placeholder, optionList, setFilterValue, currentCategory }:ISelect) => {
+const Select = ({ id, name, placeholder, optionList, setFilterValue, currentCategory, stylesCustom }:ISelect) => {
     const [ isVisible, setIsVisible ] = useState<boolean>(false);
     const [ inputValue, setInputValue ] = useState<string>('');
 
@@ -40,7 +41,10 @@ const Select = ({ id, name, placeholder, optionList, setFilterValue, currentCate
     }, [ currentCategory ]);
 
     return (
-        <div className={styles['select']}>
+        <div
+            className={styles['select']}
+            style={stylesCustom ? stylesCustom : {}}
+        >
             <input
                 className={styles['select__input']}
                 type="text"

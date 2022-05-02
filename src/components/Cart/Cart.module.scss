@@ -152,6 +152,25 @@
     @include text(14px, 600, uppercase, none, $gray-light);
   }
 
+  // RECOMMENDED PRODUCTS
+  &__recommended {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: $gray-middle;
+  }
+
+  &__recommended-heading {
+    margin: 10px 0 20px 0;
+    text-align: center;
+    @include text(18px, 600, uppercase, none, $nuclear-middle);
+  }
+
+  &__recommended-list {
+    display: flex;
+    
+  }
+
   // ORDER
   &__order {
     margin-top: 10px;
