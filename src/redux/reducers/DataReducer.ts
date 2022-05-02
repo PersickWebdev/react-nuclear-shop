@@ -1,9 +1,10 @@
 import { DataTypes } from '../actionTypes';
-import {ICategory, IProduct } from '../../types';
+import { ICategory, IProduct } from '../../types';
 
 const initialState = {
     data: [],
     filteredData: [],
+    recommendedProducts: []
 }
 
 export const DataReducer = (state = initialState, action: any) => {
@@ -12,6 +13,21 @@ export const DataReducer = (state = initialState, action: any) => {
             return {
                 ...state,
                 data: action.payload,
+            }
+        case DataTypes.getRecommended:
+            const recommendedProducts: IProduct[] = [];
+            state.data.forEach((category: ICategory) => {
+                category.categoryProducts.forEach((product: IProduct) => {
+                    if (product.recommended) {
+                        recommendedProducts.push(product);
+                    } else {
+                        return;
+                    }
+                });
+            });
+            return {
+                ...state,
+                recommendedProducts: recommendedProducts
             }
         case DataTypes.filter:
             const filteredProducts: IProduct[] = [];

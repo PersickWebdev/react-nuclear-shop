@@ -7,6 +7,12 @@ export const DataActions = {
             payload: data,
         }
     },
+    getRecommended: (data: any) => {
+        return {
+            type: DataTypes.getRecommended,
+            payload: data,
+        }
+    },
     filter: (filterValue: string) => {
         return {
             type: DataTypes.filter,

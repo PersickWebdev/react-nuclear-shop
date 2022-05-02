@@ -12,7 +12,8 @@ export interface IProduct {
     productWeight: number,
     productPrice: number,
     productImage: string,
-    productIngredients: string[]
+    productIngredients: string[],
+    recommended?: boolean
 }
 
 export interface IOrderFormData {

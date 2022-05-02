@@ -20,7 +20,8 @@
             "onion",
             "tomato",
             "mustard"
-          ]
+          ],
+          "recommended": false
         },
         {
           "parentId": 1,
@@ -38,7 +39,8 @@
             "onion",
             "tomato",
             "mustard"
-          ]
+          ],
+          "recommended": false
         },
         {
           "parentId": 1,
@@ -56,7 +58,8 @@
             "onion",
             "tomato",
             "mustard"
-          ]
+          ],
+          "recommended": false
         },
         {
           "parentId": 1,
@@ -74,7 +77,8 @@
             "onion",
             "tomato",
             "mustard"
-          ]
+          ],
+          "recommended": false
         },
         {
           "parentId": 1,
@@ -92,7 +96,8 @@
             "onion",
             "tomato",
             "mustard"
-          ]
+          ],
+          "recommended": true
         },
         {
           "parentId": 1,
@@ -110,7 +115,8 @@
             "onion",
             "tomato",
             "mustard"
-          ]
+          ],
+          "recommended": false
         },
         {
           "parentId": 1,
@@ -129,7 +135,8 @@
             "onion",
             "tomato",
             "mustard"
-          ]
+          ],
+          "recommended": false
         }
       ]
     },
@@ -145,7 +152,8 @@
           "productWeight": 500,
           "productPrice": 2,
           "productImage": "/images/drinks/cola.png",
-          "productIngredients": []
+          "productIngredients": [],
+          "recommended": false
         },
         {
           "parentId": 2,
@@ -155,7 +163,8 @@
           "productWeight": 500,
           "productPrice": 2,
           "productImage": "/images/drinks/fanta.png",
-          "productIngredients": []
+          "productIngredients": [],
+          "recommended": false
         },
         {
           "parentId": 2,
@@ -165,7 +174,8 @@
           "productWeight": 500,
           "productPrice": 2,
           "productImage": "/images/drinks/sprite.png",
-          "productIngredients": []
+          "productIngredients": [],
+          "recommended": false
         },
         {
           "parentId": 2,
@@ -179,7 +189,8 @@
             "arabica",
             "water",
             "milk"
-          ]
+          ],
+          "recommended": false
         },
         {
           "parentId": 2,
@@ -192,7 +203,8 @@
           "productIngredients": [
             "arabica",
             "milk"
-          ]
+          ],
+          "recommended": true
         },
         {
           "parentId": 2,
@@ -202,7 +214,8 @@
           "productWeight": 500,
           "productPrice": 10,
           "productImage": "/images/drinks/juice.png",
-          "productIngredients": []
+          "productIngredients": [],
+          "recommended": false
         },
         {
           "parentId": 2,
@@ -212,7 +225,8 @@
           "productWeight": 500,
           "productPrice": 10,
           "productImage": "/images/drinks/juice.png",
-          "productIngredients": []
+          "productIngredients": [],
+          "recommended": true
         }
       ]
     }
