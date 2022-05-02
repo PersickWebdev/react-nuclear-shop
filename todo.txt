@@ -1,4 +1,0 @@
-01. Connect "Enter" button to "Search".
-02. Autocomplete to "Search".
-03. Cannot click items count icon.
-04. Additional offers in "Cart".

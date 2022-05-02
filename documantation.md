@@ -13,7 +13,7 @@
 - @types/json-server
 ```
 ### REQUESTS
-#### ENDPOINT
+#### GET ALL CATEGORIES AND PRODUCTS
 ```http request
 GET http://localhost:3001/data
 ```
