@@ -24,7 +24,14 @@ const Search = ({ id, name, placeholder, currentCategory, setCurrentCategory }: 
     const searchHandler = () => {
         setCurrentCategory && setCurrentCategory('');
         dispatch(DataActions.filter(inputValue));
-    }
+    };
+
+    const onKeyUpHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key !== 'Enter') return;
+        // @ts-ignore
+        onChangeHandler(event);
+        searchHandler();
+    };
 
     useEffect(() => {
         setInputValue('');
@@ -40,6 +47,7 @@ const Search = ({ id, name, placeholder, currentCategory, setCurrentCategory }: 
                 value={inputValue ?? ''}
                 placeholder={placeholder}
                 onChange={onChangeHandler}
+                onKeyUp={onKeyUpHandler}
             />
             <div className={styles['search__icon-box']}>
                 {Icons.search({

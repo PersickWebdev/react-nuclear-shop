@@ -23,6 +23,7 @@
     justify-content: space-between;
   }
 
+  // LOGO
   &__logo-box {
     margin-right: 50px;
     transition: $transition;
@@ -46,6 +47,7 @@
     }
   }
 
+  // HEADING
   &__heading {
     @include text(36px, 700, uppercase, none, $nuclear-middle);
 
@@ -62,6 +64,7 @@
     }
   }
 
+  // ACTIONS
   &__actions {
     display: flex;
     align-items: center;
@@ -95,6 +98,7 @@
     position: absolute;
     bottom: 0;
     left: 7.5px;
+    pointer-events: none;
     @include text(12px, 600, none, none, $gray-dark);
   }
 
