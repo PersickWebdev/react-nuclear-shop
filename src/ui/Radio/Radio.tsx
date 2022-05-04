@@ -43,7 +43,8 @@ const Radio = ({ id, name, label, value, error, setFormData, setFormErrors }:IRa
                     value={value}
                     onChange={onChangeHandler}
                 />
-                {label}
+                <span className={styles['radio__label-text']}>{label}</span>
+                <div className={styles['radio__checkmark']}/>
             </label>
             {error !== ''
                 ?
