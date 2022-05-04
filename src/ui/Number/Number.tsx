@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import styles from './Input.module.scss';
+import styles from './Number.module.scss';
 
-interface IInput {
+interface INumber {
     id: string;
     name: string;
     label: string;
@@ -10,7 +10,7 @@ interface IInput {
     setFormErrors: (state: any) => void;
 }
 
-const Input = ({ id, name, label, error, setFormData, setFormErrors }:IInput) => {
+const Number = ({ id, name, label, error, setFormData, setFormErrors }:INumber) => {
     const [ inputValue, setInputValue ] = useState<string>('');
 
     const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,21 +24,21 @@ const Input = ({ id, name, label, error, setFormData, setFormErrors }:IInput) =>
         setFormErrors && setFormErrors((state: any) => {
             return {
                 ...state,
-                [name]: ''
+                [name]: '',
             }
         });
-    }
+    };
 
     return (
-        <div className={`${styles['input']} ${error !== '' ? styles['error'] : ''}`}>
+        <div className={`${styles['number']} ${error !== '' ? styles['error']: ''}`}>
             <label
-                className={styles['input__label']}
+                className={styles['number__label']}
                 htmlFor={id}
             >
                 {label}
                 <input
-                    className={styles['input__element']}
-                    type="text"
+                    className={styles['number__element']}
+                    type="number"
                     id={id}
                     name={name}
                     value={inputValue}
@@ -47,7 +47,7 @@ const Input = ({ id, name, label, error, setFormData, setFormErrors }:IInput) =>
             </label>
             {error !== ''
                 ?
-                <p className={styles['input__error']}>
+                <p className={styles['number__error']}>
                     {error}
                 </p>
                 :
@@ -57,4 +57,4 @@ const Input = ({ id, name, label, error, setFormData, setFormErrors }:IInput) =>
     );
 };
 
-export default Input;
+export default Number;

@@ -4,14 +4,14 @@ import { Input, Button, Textarea } from '../../ui';
 import { IOrderFormErrors } from '../../types';
 
 interface IOrderForm {
-    orderFormErrors: IOrderFormErrors;
-    setOrderFormData: (state: any) => void;
-    setOrderFormErrors: (state: any) => void;
+    formErrors: IOrderFormErrors;
+    setFormErrors: (state: any) => void;
+    setFormData: (state: any) => void;
     submitHandler: (event: React.MouseEvent<HTMLButtonElement>) => void;
     cancelHandler: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const OrderForm = ({ setOrderFormData, orderFormErrors, setOrderFormErrors, submitHandler, cancelHandler }:IOrderForm) => {
+const OrderForm = ({ setFormData, formErrors, setFormErrors, submitHandler, cancelHandler }:IOrderForm) => {
     return (
         <form
             className={styles['order-form']}
@@ -21,9 +21,9 @@ const OrderForm = ({ setOrderFormData, orderFormErrors, setOrderFormErrors, subm
                     id='first-name'
                     name='firstName'
                     label='First name:'
-                    error={orderFormErrors.firstName}
-                    setOrderFormData={setOrderFormData}
-                    setOrderFormErrors={setOrderFormErrors}
+                    error={formErrors.firstName}
+                    setFormData={setFormData}
+                    setFormErrors={setFormErrors}
                 />
             </div>
             <div className={styles['order-form__section']}>
@@ -31,9 +31,9 @@ const OrderForm = ({ setOrderFormData, orderFormErrors, setOrderFormErrors, subm
                     id='phone'
                     name='phone'
                     label='Phone:'
-                    error={orderFormErrors.phone}
-                    setOrderFormData={setOrderFormData}
-                    setOrderFormErrors={setOrderFormErrors}
+                    error={formErrors.phone}
+                    setFormData={setFormData}
+                    setFormErrors={setFormErrors}
                 />
             </div>
             <div className={styles['order-form__section']}>
@@ -41,9 +41,9 @@ const OrderForm = ({ setOrderFormData, orderFormErrors, setOrderFormErrors, subm
                     id='email'
                     name='email'
                     label='Email:'
-                    error={orderFormErrors.email}
-                    setOrderFormData={setOrderFormData}
-                    setOrderFormErrors={setOrderFormErrors}
+                    error={formErrors.email}
+                    setFormData={setFormData}
+                    setFormErrors={setFormErrors}
                 />
             </div>
             <div className={styles['order-form__section']}>
@@ -51,9 +51,9 @@ const OrderForm = ({ setOrderFormData, orderFormErrors, setOrderFormErrors, subm
                     id='address'
                     name='address'
                     label='Address:'
-                    error={orderFormErrors.address}
-                    setOrderFormData={setOrderFormData}
-                    setOrderFormErrors={setOrderFormErrors}
+                    error={formErrors.address}
+                    setFormData={setFormData}
+                    setFormErrors={setFormErrors}
                 />
             </div>
             <div className={styles['order-form__section']}>
@@ -61,9 +61,9 @@ const OrderForm = ({ setOrderFormData, orderFormErrors, setOrderFormErrors, subm
                     id='comment'
                     name='comment'
                     label='Your comment:'
-                    error={orderFormErrors.comment}
-                    setOrderFormData={setOrderFormData}
-                    setOrderFormErrors={setOrderFormErrors}
+                    error={formErrors.comment}
+                    setFormData={setFormData}
+                    setFormErrors={setFormErrors}
                 />
             </div>
             <div className={styles['order-form__buttons']}>

@@ -1,0 +1,50 @@
+@import '../../scss/colors';
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.number {
+
+  &__label {
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    @include text(16px, 400, none, none, $gray-light);
+  }
+
+  &__element {
+    margin-bottom: 3px;
+    padding: 8px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid $gray-dark;
+    background-color: $gray-middle;
+    transition: $transition;
+    @include text(13px, 400, none, none, $gray-dark);
+  }
+
+  &__element:focus {
+    @include text(13px, 400, none, none, $gray-dark);
+    background-color: $gray-light;
+    border: 1px solid $gray-light;
+  }
+
+  &.error .number__element {
+    border: 1px solid $red-middle;
+  }
+
+  &__error {
+    @include text(13px, 400, none, none, $red-middle);
+  }
+}

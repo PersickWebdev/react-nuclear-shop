@@ -6,24 +6,24 @@ interface ITextarea {
     name: string;
     label: string;
     error: string;
-    setOrderFormData: (state: any) => void;
-    setOrderFormErrors: (state: any) => void;
+    setFormData: (state: any) => void;
+    setFormErrors: (state: any) => void;
 }
 
-const Textarea = ({ id, name, label, error, setOrderFormData, setOrderFormErrors }:ITextarea) => {
+const Textarea = ({ id, name, label, error, setFormData, setFormErrors }:ITextarea) => {
     const [ elementValue, setElementValue ] = useState<string>('');
 
     const onChangeHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         setElementValue(event.target.value);
 
-        setOrderFormData((state: any) => {
+        setFormData((state: any) => {
             return {
                 ...state,
                 [name]: event.target.value
             }
         });
 
-        setOrderFormErrors((state: any) => {
+        setFormErrors((state: any) => {
             return {
                 ...state,
                 [name]: ''

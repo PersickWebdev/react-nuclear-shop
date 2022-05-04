@@ -16,6 +16,7 @@ export interface IProduct {
     recommended?: boolean
 }
 
+// ORDER FORM
 export interface IOrderFormData {
     firstName: string;
     phone: string;
@@ -29,5 +30,26 @@ export interface IOrderFormErrors {
     phone: string;
     email: string;
     address: string;
+    comment: string;
+}
+
+// CONTACT FORM
+export interface IContactFormData {
+    name: string;
+    age: string;
+    gender: string;
+    preferableFood: [];
+    foodQuality: string;
+    serviceSpeed: string;
+    comment: string;
+}
+
+export interface IContactFormErrors {
+    name: string;
+    age: string;
+    gender: string;
+    preferableFood: string;
+    foodQuality: string;
+    serviceSpeed: string;
     comment: string;
 }

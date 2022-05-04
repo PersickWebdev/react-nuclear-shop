@@ -2,5 +2,7 @@ export type {
     ICategory,
     IProduct,
     IOrderFormData,
-    IOrderFormErrors
+    IOrderFormErrors,
+    IContactFormData,
+    IContactFormErrors,
 } from './interfaces';

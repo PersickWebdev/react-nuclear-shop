@@ -1,14 +1,14 @@
 import { RegularExpressions } from '../utils';
 
 interface IValidator {
-    orderFormData: any;
-    setOrderFormErrors: (state: any) => void;
+    formData: any;
+    setFormErrors: (state: any) => void;
 }
 
 interface IIsNotEmpty {
-    orderFormData: any;
+    formData: any;
     key: string;
-    setOrderFormErrors: (state: any) => void;
+    setFormErrors: (state: any) => void;
 }
 
 const ErrorMessages = {
@@ -23,9 +23,9 @@ const ErrorMessages = {
 }
 
 const useValidator = () => {
-    const isNotEmpty = ({ orderFormData, key, setOrderFormErrors }: IIsNotEmpty) => {
-        if (!orderFormData[key]) {
-            setOrderFormErrors((state: any) => {
+    const isNotEmpty = ({ formData, key, setFormErrors }: IIsNotEmpty) => {
+        if (!formData[key]) {
+            setFormErrors((state: any) => {
                 return {
                     ...state,
                     [key]: ErrorMessages.isRequired
@@ -36,11 +36,11 @@ const useValidator = () => {
         return true;
     };
 
-    const firstNameValidator = ({ orderFormData, setOrderFormErrors }: IValidator) => {
-        if (!isNotEmpty({ orderFormData, key: 'firstName', setOrderFormErrors })) return false;
+    const firstNameValidator = ({ formData, setFormErrors }: IValidator) => {
+        if (!isNotEmpty({ formData, key: 'firstName', setFormErrors })) return false;
 
-        if (orderFormData.firstName.length < 2) {
-            setOrderFormErrors((state: any) => {
+        if (formData.firstName.length < 2) {
+            setFormErrors((state: any) => {
                 return {
                     ...state,
                     firstName: ErrorMessages.firstName.tooShort
@@ -49,8 +49,8 @@ const useValidator = () => {
             return false;
         }
 
-        if (!RegularExpressions.name.test(orderFormData.firstName)) {
-            setOrderFormErrors((state: any) => {
+        if (!RegularExpressions.name.test(formData.firstName)) {
+            setFormErrors((state: any) => {
                 return {
                     ...state,
                     firstName: ErrorMessages.firstName.noSpecialCharacters
@@ -62,11 +62,11 @@ const useValidator = () => {
         return true;
     };
 
-    const phoneValidator = ({ orderFormData, setOrderFormErrors }: IValidator) => {
-        if (!isNotEmpty({ orderFormData, key: 'phone', setOrderFormErrors })) return false;
+    const phoneValidator = ({ formData, setFormErrors }: IValidator) => {
+        if (!isNotEmpty({ formData, key: 'phone', setFormErrors })) return false;
 
-        if (!RegularExpressions.phone.test(orderFormData.phone)) {
-            setOrderFormErrors((state: any) => {
+        if (!RegularExpressions.phone.test(formData.phone)) {
+            setFormErrors((state: any) => {
                 return {
                     ...state,
                     phone: ErrorMessages.phone,
@@ -78,11 +78,11 @@ const useValidator = () => {
         return true;
     };
 
-    const emailValidator = ({ orderFormData, setOrderFormErrors }: IValidator) => {
-        if (!isNotEmpty({ orderFormData, key: 'email', setOrderFormErrors })) return false;
+    const emailValidator = ({ formData, setFormErrors }: IValidator) => {
+        if (!isNotEmpty({ formData, key: 'email', setFormErrors })) return false;
 
-        if (!RegularExpressions.email.test(orderFormData.email)) {
-            setOrderFormErrors((state: any) => {
+        if (!RegularExpressions.email.test(formData.email)) {
+            setFormErrors((state: any) => {
                 return {
                     ...state,
                     email: ErrorMessages.email,
@@ -93,9 +93,9 @@ const useValidator = () => {
         return true;
     };
 
-    const addressValidator = ({ orderFormData, setOrderFormErrors }: IValidator) => {
-        if (!isNotEmpty({ orderFormData, key: 'address', setOrderFormErrors })) {
-            setOrderFormErrors((state: any) => {
+    const addressValidator = ({ formData, setFormErrors }: IValidator) => {
+        if (!isNotEmpty({ formData, key: 'address', setFormErrors })) {
+            setFormErrors((state: any) => {
                 return {
                     ...state,
                     address: ErrorMessages.isRequired,
@@ -106,9 +106,9 @@ const useValidator = () => {
         return true;
     };
 
-    const commentValidator = ({ orderFormData, setOrderFormErrors }: IValidator) => {
-        if (orderFormData.comment.length > 255) {
-            setOrderFormErrors((state: any) => {
+    const commentValidator = ({ formData, setFormErrors }: IValidator) => {
+        if (formData.comment.length > 255) {
+            setFormErrors((state: any) => {
                return {
                    ...state,
                    comment: ErrorMessages.comment

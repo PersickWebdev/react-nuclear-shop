@@ -15,3 +15,4 @@ export { default as Cart } from './Cart/Cart';
 export { default as CartItem } from './Cart/CartItem';
 
 export { default as OrderForm } from './OrderForm/OrderForm';
+export { default as ContactForm } from './ContactForm/ContactForm';

@@ -1,0 +1,18 @@
+@import '../../scss/colors';
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.contact-form {
+  width: 300px;
+  margin: 0 auto;
+
+  &__section {
+    margin-bottom: 15px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

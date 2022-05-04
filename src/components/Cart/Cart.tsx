@@ -17,14 +17,14 @@ const Cart = ({ products, totalItemsPrice }: ICart) => {
     // @ts-ignore;
     const { firstNameValidator, phoneValidator, emailValidator, addressValidator, commentValidator } = useValidator();
     const [ isOrderFormShown, setIsOrderFormShown ] = useState<boolean>(false);
-    const [ orderFormData, setOrderFormData ] = useState<IOrderFormData>({
+    const [ formData, setFormData ] = useState<IOrderFormData>({
         firstName: '',
         phone: '',
         email: '',
         address: '',
         comment: '',
     });
-    const [ orderFormErrors, setOrderFormErrors ] = useState<IOrderFormErrors>({
+    const [ formErrors, setFormErrors ] = useState<IOrderFormErrors>({
         firstName: '',
         phone: '',
         email: '',
@@ -63,11 +63,11 @@ const Cart = ({ products, totalItemsPrice }: ICart) => {
         event.preventDefault();
 
         const isDataValid = () => {
-            const isFirstNameValid = firstNameValidator({ orderFormData, setOrderFormErrors });
-            const isPhoneValid = phoneValidator({ orderFormData, setOrderFormErrors });
-            const isEmailValid = emailValidator({ orderFormData, setOrderFormErrors });
-            const isAddressValid = addressValidator({ orderFormData, setOrderFormErrors });
-            const isCommentValid = commentValidator({ orderFormData, setOrderFormErrors });
+            const isFirstNameValid = firstNameValidator({ formData, setFormErrors });
+            const isPhoneValid = phoneValidator({ formData, setFormErrors });
+            const isEmailValid = emailValidator({ formData, setFormErrors });
+            const isAddressValid = addressValidator({ formData, setFormErrors });
+            const isCommentValid = commentValidator({ formData, setFormErrors });
 
             return isFirstNameValid
                 && isPhoneValid
@@ -79,11 +79,11 @@ const Cart = ({ products, totalItemsPrice }: ICart) => {
         if (!isDataValid()) return;
 
         const orderData = {
-            firstName: orderFormData.firstName,
-            phone: orderFormData.phone,
-            email: orderFormData.email,
-            address: orderFormData.address,
-            comment: orderFormData.comment,
+            firstName: formData.firstName,
+            phone: formData.phone,
+            email: formData.email,
+            address: formData.address,
+            comment: formData.comment,
         }
 
         console.log('Cart - orderData: ', orderData);
@@ -149,9 +149,9 @@ const Cart = ({ products, totalItemsPrice }: ICart) => {
                         Order Checkout
                     </h3>
                     <OrderForm
-                        setOrderFormData={setOrderFormData}
-                        orderFormErrors={orderFormErrors}
-                        setOrderFormErrors={setOrderFormErrors}
+                        setFormData={setFormData}
+                        formErrors={formErrors}
+                        setFormErrors={setFormErrors}
                         submitHandler={submitHandler}
                         cancelHandler={cancelHandler}
                     />
