@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './ContactForm.module.scss';
-import { Button, Input, Textarea, Number } from '../../ui';
+import { Button, Input, Textarea, Number, Radio } from '../../ui';
 import { IContactFormData, IContactFormErrors } from '../../types';
 
 interface IContactForm {}
@@ -68,7 +68,24 @@ const ContactForm = ({}: IContactForm) => {
                 />
             </div>
             <div className={styles['contact-form__section']}>
-                Gender (Radio)
+                <Radio
+                    id='gender-male'
+                    name='gender'
+                    value='male'
+                    label='Male'
+                    error={formErrors.gender}
+                    setFormData={setFormData}
+                    setFormErrors={setFormErrors}
+                />
+                <Radio
+                    id='gender-female'
+                    name='gender'
+                    value='female'
+                    label='Female'
+                    error={formErrors.gender}
+                    setFormData={setFormData}
+                    setFormErrors={setFormErrors}
+                />
             </div>
             <div className={styles['contact-form__section']}>
                 Preferable food (Checkbox)
