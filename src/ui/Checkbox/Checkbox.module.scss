@@ -2,16 +2,20 @@
 @import '../../scss/variables';
 @import '../../scss/mixins';
 
-.radio {
-  margin-bottom: 15px;
+.checkbox {
+  width: 120px;
+  margin-bottom: 10px;
+  border: 1px solid $gray-middle;
+  border-radius: 5px;
 
   &__label {
+    //width: 88%;
     display: flex;
     align-items: center;
     position: relative;
     padding: 5px;
-    border: 1px solid $gray-middle;
-    border-radius: 5px;
+    //border: 1px solid $gray-middle;
+    //border-radius: 5px;
     cursor: pointer;
   }
 
@@ -33,7 +37,7 @@
     left: 6px;
     width: 16px;
     height: 16px;
-    border-radius: 50%;
+    border-radius: 3px;
     background-color: $gray-middle;
   }
 
@@ -45,17 +49,13 @@
     position: absolute;
     top: 4px;
     left: 4px;
-    border-radius: 50%;
+    border-radius: 3px;
     background-color: $nuclear-middle;
     transition: $transition;
   }
 
-  &__element:checked ~ .radio__checkmark:after {
+  &__element:checked ~ .checkbox__checkmark:after {
     opacity: 1;
-  }
-
-  &.error .radio__element {
-    border: 1px solid $red-middle;
   }
 
   &__error {

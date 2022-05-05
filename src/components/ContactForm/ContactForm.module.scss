@@ -10,9 +10,20 @@
     margin-bottom: 15px;
   }
 
-  &__buttons {
+  &__section-heading {
+    @include text(16px, 400, none, none, $gray-light);
+  }
+
+  &__section.checkboxes div {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
     align-items: center;
   }
 }

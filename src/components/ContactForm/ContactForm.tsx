@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './ContactForm.module.scss';
-import { Button, Input, Textarea, Number, Radio } from '../../ui';
+import {Button, Input, Textarea, Number, Radio, Checkbox } from '../../ui';
 import { IContactFormData, IContactFormErrors } from '../../types';
 
 interface IContactForm {}
@@ -41,10 +41,6 @@ const ContactForm = ({}: IContactForm) => {
         console.log('ContactForm - formDataToSend: ', formDataToSend);
     };
 
-    const cancelHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault();
-    };
-
     return (
         <form className={styles['contact-form']}>
             <div className={styles['contact-form__section']}>
@@ -68,6 +64,9 @@ const ContactForm = ({}: IContactForm) => {
                 />
             </div>
             <div className={styles['contact-form__section']}>
+                <h4 className={styles['contact-form__section-heading']}>
+                    Gender:
+                </h4>
                 <Radio
                     id='gender-male'
                     name='gender'
@@ -87,11 +86,51 @@ const ContactForm = ({}: IContactForm) => {
                     setFormErrors={setFormErrors}
                 />
             </div>
-            <div className={styles['contact-form__section']}>
-                Preferable food (Checkbox)
+            <div className={`${styles['contact-form__section']} ${styles['checkboxes']}`}>
+                <h4 className={styles['contact-form__section-heading']}>
+                    Preferable types of food:
+                </h4>
+                <div>
+                    <Checkbox
+                        id='preferable-food-burgers'
+                        name='preferableFood'
+                        label='burgers'
+                        value='burgers'
+                        error={formErrors.preferableFood}
+                        setFormData={setFormData}
+                        setFormErrors={setFormErrors}
+                    />
+                    <Checkbox
+                        id='preferable-food-pizza'
+                        name='preferableFood'
+                        label='pizza'
+                        value='pizza'
+                        error={formErrors.preferableFood}
+                        setFormData={setFormData}
+                        setFormErrors={setFormErrors}
+                    />
+                    <Checkbox
+                        id='preferable-food-sweets'
+                        name='preferableFood'
+                        label='sweets'
+                        value='sweets'
+                        error={formErrors.preferableFood}
+                        setFormData={setFormData}
+                        setFormErrors={setFormErrors}
+                    />
+                    <Checkbox
+                        id='preferable-food-vegetables'
+                        name='preferableFood'
+                        label='vegetables'
+                        value='vegetables'
+                        error={formErrors.preferableFood}
+                        setFormData={setFormData}
+                        setFormErrors={setFormErrors}
+                    />
+                </div>
             </div>
             <div className={styles['contact-form__section']}>
-                 Food quality (Select)
+
             </div>
             <div className={styles['contact-form__section']}>
                 <Input
@@ -121,14 +160,6 @@ const ContactForm = ({}: IContactForm) => {
                     action={(event: React.MouseEvent<HTMLButtonElement>) => submitHandler(event)}
                 >
                     Confirm
-                </Button>
-                <Button
-                    id='button-cancel'
-                    name='buttonCancel'
-                    stylesPreset='warning'
-                    action={(event: React.MouseEvent<HTMLButtonElement>) => cancelHandler(event)}
-                >
-                    Cancel
                 </Button>
             </div>
         </form>

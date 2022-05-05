@@ -8,12 +8,20 @@ interface ISelect {
     name: string;
     placeholder: string;
     optionList: string[];
-    setFilterValue: (filterValue: string) => void;
+    setFilterValue?: (filterValue: string) => void;
     currentCategory?: string;
     stylesCustom?: any;
 }
 
-const Select = ({ id, name, placeholder, optionList, setFilterValue, currentCategory, stylesCustom }:ISelect) => {
+const Select = ({
+    id,
+    name,
+    placeholder,
+    optionList,
+    setFilterValue,
+    currentCategory,
+    stylesCustom
+}:ISelect) => {
     const [ isVisible, setIsVisible ] = useState<boolean>(false);
     const [ inputValue, setInputValue ] = useState<string>('');
 
@@ -33,7 +41,7 @@ const Select = ({ id, name, placeholder, optionList, setFilterValue, currentCate
     });
 
     useEffect(() => {
-        setFilterValue(inputValue);
+        setFilterValue && setFilterValue(inputValue);
     }, [ inputValue ]);
 
     useEffect(() => {
