@@ -61,4 +61,31 @@
   &__categories-list-item:not(:last-child) {
     margin-right: 20px;
   }
+
+  &__icon-box a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 31px;
+    height: 31px;
+    background-color: $nuclear-middle;
+    border: 1px solid $nuclear-middle;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: $transition;
+  }
+
+  &__icon-box a:hover {
+    border: 1px solid $nuclear-middle;
+    background-color: $gray-dark;
+  }
+
+  &__icon-box a:hover .control-panel__constructor-icon {
+    fill: $nuclear-middle;
+  }
+
+  &__constructor-icon {
+    fill: $gray-dark;
+  }
+
 }

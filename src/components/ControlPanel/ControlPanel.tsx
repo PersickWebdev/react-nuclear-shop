@@ -3,8 +3,9 @@ import styles from './ControlPanel.module.scss';
 import { useDispatch } from 'react-redux';
 import { CategoryItem } from '../../components';
 import { DataActions } from '../../redux/actionCreators';
-import { Search, Select } from '../../ui';
+import {Icons, Search, Select} from '../../ui';
 import { ICategory } from '../../types';
+import {Link} from "react-router-dom";
 
 interface IControlPanel {
     data: ICategory[];
@@ -64,6 +65,13 @@ const ControlPanel = ({ data, currentCategory, setCurrentCategory, setFilterValu
                             All
                         </li>
                         {categoryElements}
+                        <div className={styles['control-panel__icon-box']}>
+                            <Link to='/constructor'>
+                                {Icons.puzzle({
+                                    className: `${styles['control-panel__constructor-icon']}`,
+                                })}
+                            </Link>
+                        </div>
                     </ul>
                 </div>
             </div>
