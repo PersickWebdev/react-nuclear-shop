@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Header, Footer } from './components';
-import { WelcomePage, StorePage, ContactUsPage, CartPage, ConstructorPage } from './pages';
+import { WelcomePage, StorePage, ContactUsPage, CartPage } from './pages';
 import { useRequests } from './api';
 import styles from './App.module.scss';
 
@@ -50,10 +50,6 @@ export const App = () => {
                     <Route
                         path="/cart"
                         element={<CartPage/>}
-                    />
-                    <Route
-                        path="/constructor"
-                        element={<ConstructorPage/>}
                     />
                 </Routes>
             </main>
