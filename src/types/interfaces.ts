@@ -35,7 +35,7 @@ export interface IOrderFormErrors {
 
 // CONTACT FORM
 export interface IContactFormData {
-    name: string;
+    firstName: string;
     age: string;
     gender: string;
     preferableFood: [];
@@ -45,7 +45,7 @@ export interface IContactFormData {
 }
 
 export interface IContactFormErrors {
-    name: string;
+    firstName: string;
     age: string;
     gender: string;
     preferableFood: string;

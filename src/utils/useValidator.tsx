@@ -19,7 +19,12 @@ const ErrorMessages = {
     },
     phone: 'Wrong format. Example: +380630001122',
     email: 'Wrong format. Example: test@gmail.com',
-    comment: 'Too long. No more than 155 characters'
+    comment: 'Too long. No more than 155 characters',
+    age: {
+        tooYoung: 'You are too young, sorry',
+        tooOld: 'Really? Our respect!',
+        wrongType: 'Wrong type. Only numbers are allowed'
+    }
 }
 
 const useValidator = () => {
@@ -119,12 +124,72 @@ const useValidator = () => {
         return true;
     };
 
+    const ageValidator = ({ formData, setFormErrors }: IValidator) => {
+        if (isNaN(Number(formData.age))) {
+            setFormErrors((state: any) => {
+               return {
+                   ...state,
+                   age: ErrorMessages.age.wrongType
+               }
+            });
+            return false;
+        }
+
+        if (Number(formData.age) < 6 ) {
+            setFormErrors((state: any) => {
+                return {
+                    ...state,
+                    age: ErrorMessages.age.tooYoung
+                }
+            });
+            return false;
+        }
+
+        if (Number(formData.age) > 90) {
+            setFormErrors((state: any) => {
+                return {
+                    ...state,
+                    age: ErrorMessages.age.tooOld
+                }
+            });
+            return false;
+        }
+        return true;
+    };
+
+    const genderValidator = ({ formData, setFormErrors }: IValidator) => {
+        return isNotEmpty({formData, key: 'gender', setFormErrors});
+
+    };
+
+    const preferableFoodValidator = ({ formData, setFormErrors }: IValidator) => {
+        if (!formData.preferableFood.length) {
+            setFormErrors((state: any) => {
+                return {
+                    ...state,
+                    preferableFood: ErrorMessages.isRequired
+                }
+            });
+            return false;
+        }
+        return true;
+    };
+
+    const serviceSpeedValidator = ({ formData, setFormErrors }: IValidator) => {
+        return isNotEmpty({formData, key: 'serviceSpeed', setFormErrors});
+
+    };
+
     return {
         firstNameValidator,
         phoneValidator,
         emailValidator,
         addressValidator,
-        commentValidator
+        commentValidator,
+        ageValidator,
+        genderValidator,
+        preferableFoodValidator,
+        serviceSpeedValidator
     };
 };
 

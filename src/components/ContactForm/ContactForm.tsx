@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
 import styles from './ContactForm.module.scss';
-import {Button, Input, Textarea, Number, Radio, Checkbox } from '../../ui';
+import { Button, Input, Textarea, Number, Radio, Checkbox } from '../../ui';
+import { useValidator } from '../../utils';
 import { IContactFormData, IContactFormErrors } from '../../types';
 
-interface IContactForm {}
+interface IContactForm {
+    setIsModalVisible: (state: boolean) => void;
+}
 
-const ContactForm = ({}: IContactForm) => {
+const ContactForm = ({ setIsModalVisible }: IContactForm) => {
+    const {
+        firstNameValidator,
+        ageValidator ,
+        genderValidator,
+        preferableFoodValidator,
+        serviceSpeedValidator
+    } = useValidator();
     const [ formData, setFormData ] = useState<IContactFormData>({
-        name: '',
+        firstName: '',
         age: '',
         gender: '',
         preferableFood: [],
@@ -16,7 +26,7 @@ const ContactForm = ({}: IContactForm) => {
         comment: '',
     });
     const [ formErrors, setFormErrors ] = useState<IContactFormErrors>({
-        name: '',
+        firstName: '',
         age: '',
         gender: '',
         preferableFood: '',
@@ -28,8 +38,24 @@ const ContactForm = ({}: IContactForm) => {
     const submitHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
 
+        const isValid = () => {
+            const isNameValid = firstNameValidator({ formData, setFormErrors });
+            const isAgeValid = ageValidator({ formData, setFormErrors });
+            const isGenderValid = genderValidator({ formData, setFormErrors });
+            const isPreferableFoodValid = preferableFoodValidator({ formData, setFormErrors });
+            const isServiceSpeedValid = serviceSpeedValidator({ formData, setFormErrors });
+
+            return isNameValid
+                && isAgeValid
+                && isGenderValid
+                && isPreferableFoodValid
+                && isServiceSpeedValid
+        }
+
+        if (!isValid()) return false;
+
         const formDataToSend = {
-            name: formData.name,
+            name: formData.firstName,
             age: formData.age,
             gender: formData.gender,
             preferableFood: formData.preferableFood,
@@ -37,7 +63,7 @@ const ContactForm = ({}: IContactForm) => {
             serviceSpeed: formData.serviceSpeed,
             comment: formData.comment,
         }
-
+        setIsModalVisible(true);
         console.log('ContactForm - formDataToSend: ', formDataToSend);
     };
 
@@ -46,9 +72,9 @@ const ContactForm = ({}: IContactForm) => {
             <div className={styles['contact-form__section']}>
                 <Input
                     id='name'
-                    name='name'
+                    name='firstName'
                     label='Name:'
-                    error={formErrors.name}
+                    error={formErrors.firstName}
                     setFormData={setFormData}
                     setFormErrors={setFormErrors}
                 />
@@ -58,7 +84,7 @@ const ContactForm = ({}: IContactForm) => {
                     id='number'
                     name='age'
                     label='Age:'
-                    error={formErrors.name}
+                    error={formErrors.age}
                     setFormData={setFormData}
                     setFormErrors={setFormErrors}
                 />
@@ -128,9 +154,6 @@ const ContactForm = ({}: IContactForm) => {
                         setFormErrors={setFormErrors}
                     />
                 </div>
-            </div>
-            <div className={styles['contact-form__section']}>
-
             </div>
             <div className={styles['contact-form__section']}>
                 <Input

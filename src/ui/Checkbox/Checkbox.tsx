@@ -28,6 +28,13 @@ const Checkbox = ({ id, name, label, error, value, setFormData, setFormErrors }:
                 }
             });
         }
+
+        setFormErrors && setFormErrors((state: any) => {
+            return {
+                ...state,
+                [name]: ''
+            }
+        });
     };
 
     return (

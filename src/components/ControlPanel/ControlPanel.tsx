@@ -65,13 +65,6 @@ const ControlPanel = ({ data, currentCategory, setCurrentCategory, setFilterValu
                             All
                         </li>
                         {categoryElements}
-                        <div className={styles['control-panel__icon-box']}>
-                            <Link to='/constructor'>
-                                {Icons.puzzle({
-                                    className: `${styles['control-panel__constructor-icon']}`,
-                                })}
-                            </Link>
-                        </div>
                     </ul>
                 </div>
             </div>

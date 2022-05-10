@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './ContactUsPage.module.scss';
 import { ContactForm } from '../../components';
+import {Modal} from "../../ui";
 
 const ContactUsPage = () => {
+    const [ isModalVisible, setIsModalVisible ] = useState<boolean>(false);
+
     return (
         <div className={styles['contact-us-page']}>
             <div className={styles['container']}>
@@ -14,9 +17,19 @@ const ContactUsPage = () => {
                         Please, fill out a short contact form to improve the
                         quality of our service.
                     </p>
-                    <ContactForm/>
+                    <ContactForm
+                        setIsModalVisible={setIsModalVisible}
+                    />
                 </div>
             </div>
+            <Modal
+                heading='Your response confirmed!'
+                message='Thanks for your feedback! It will help us to improve our service quality. Have a nice time :)'
+                isModalVisible={isModalVisible}
+                setIsModalVisible={setIsModalVisible}
+            >
+                <></>
+            </Modal>
         </div>
     );
 };
